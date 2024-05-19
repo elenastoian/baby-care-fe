@@ -1,0 +1,209 @@
+.layout-config {
+	position: fixed;
+	top: 0;
+	padding: 0;
+	right: 0;
+	display: block;
+	width: 240px;
+	z-index: 1000;
+	height: 100%;
+	transform: translate3d(240px, 0px, 0px);
+	transition: transform $transitionDuration;
+	backface-visibility: hidden;
+	box-shadow: 0 24px 64px -2px rgba(0, 0, 0, 0.02), 0 6px 16px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -2px rgba(0, 0, 0, 0.08);
+	color: $textColor;
+	background-color: $menuBgColor;
+
+	&.layout-config-active {
+		transform: translate3d(0px, 0px, 0px);
+
+		.layout-config-content {
+			.layout-config-button {
+				i {
+					transform: rotate(360deg);
+				}
+			}
+		}
+	}
+
+	.layout-config-button {
+		display: block;
+		position: absolute;
+		width: 52px;
+		height: 52px;
+		line-height: 52px;
+		background-color: $primaryColor;
+		text-align: center;
+		color: $primaryTextColor;
+		top: 230px;
+		left: -52px;
+		z-index: -1;
+		overflow: hidden;
+		cursor: pointer;
+		transition: background-color $transitionDuration;
+
+		i {
+			font-size: 32px;
+			line-height: inherit;
+			cursor: pointer;
+			transform: rotate(0deg);
+			transition: color $transitionDuration, transform 1s;
+		}
+	}
+
+	.layout-config-header {
+		padding: 18px 12px;
+		margin-bottom: 12px;
+		background-image: linear-gradient(90deg,$primaryColor 10%,lighten($primaryColor, 8%) 100%);
+		> h3 {
+			font-size: 16px;
+			font-weight: 500;
+			margin: 0;
+			margin-bottom: 12px;
+			color:#ffffff;
+		}
+
+		> span {
+			font-size: 12px;
+			display: block;
+			color:#ffffff;
+		}
+	}
+
+	.layout-config-content {
+		position: relative;
+		overflow: auto;
+		height: 100%;
+		padding-bottom: 140px;
+
+		.layout-config-section {
+			padding: 10px;
+
+			.section-name {
+				font-weight: 500;
+				font-size: 12px;
+				display: block;
+				padding: 0 2px;
+				color: $textColor;
+			}
+
+			.field-radiobutton {
+				padding: .5em;
+				margin-right: 0;
+				margin-bottom: 0;
+			}
+
+			&.dark {
+				display: flex;
+				align-items: center;
+
+				.section-name {
+					margin-right: 18px;
+				}
+
+				.p-inputswitch {
+					.p-inputswitch-on,
+					.p-inputswitch-off {
+						padding: 0;
+					}
+				}
+			}
+
+			&.colors {
+				.layout-config-colors {
+					padding: 0 10px;
+					margin-top: 3px;
+
+					.col-fixed {
+						padding: .5em;
+					}
+				}
+			}
+
+			&.options {
+				.layout-config-options {
+					margin-top: 3px;
+				}
+			}
+			.layout-themes {
+				display: flex;
+				flex-wrap: wrap;
+
+				a {
+					width: 24px;
+					height: 24px;
+					margin: .5em;
+					border-radius: 4px;
+					display: block;
+					position: relative;
+					align-items: center;
+					justify-content: center;
+					transition: transform $transitionDuration;
+					box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+
+					i {
+						font-size: 1rem;
+						position: absolute;
+						color: $primaryTextColor;
+						top: 50%;
+						left: 50%;
+						margin-left: -.5rem;
+						margin-top: -.5rem;
+					}
+
+
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+
+	.col {
+		text-align: center;
+	}
+
+	p {
+		line-height: 1.5;
+		margin-top: 0;
+		color: $textSecondaryColor;
+	}
+}
+
+.blocked-scroll-config{
+	overflow: hidden;
+}
+
+.layout-rtl {
+	.layout-config {
+		right: auto;
+		left: 0;
+		transform: translate3d(-240px, 0px, 0px);
+
+		&.layout-config-active {
+			transform: translate3d(0px, 0px, 0px);
+
+			.layout-config-button {
+				i {
+					transform: rotate(360deg);
+				}
+			}
+		}
+
+		.layout-config-button {
+			left: auto;
+			right: -51px;
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.layout-config {
+		transform: translate3d(100%, 0px, 0px);
+
+		&.layout-config-active {
+			transform: translate3d(0px, 0px, 0px);
+		}
+	}
+}

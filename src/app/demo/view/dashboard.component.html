@@ -1,0 +1,452 @@
+<div class="grid layout-dashboard">
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="overview-box card">
+            <div class="overview-box-value">90</div>
+            <div class="overview-box-title">TASKS</div>
+            <img src="assets/layout/images/dashboard/graph-tasks.svg" alt="">
+            <div class="overview-box-status">
+                +8.9% <i class="pi pi-arrow-circle-up"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="overview-box card">
+            <div class="overview-box-value">1259</div>
+            <div class="overview-box-title">PURCHASES</div>
+            <img src="assets/layout/images/dashboard/graph-purchases.svg" alt="">
+            <div class="overview-box-status">
+                +67.2% <i class="pi pi-arrow-circle-up"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="overview-box card">
+            <div class="overview-box-value">21</div>
+            <div class="overview-box-title">ISSUES</div>
+            <img src="assets/layout/images/dashboard/graph-issues.svg" alt="">
+            <div class="overview-box-status">
+                +3.0% <i class="pi pi-arrow-circle-up"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="overview-box card">
+            <div class="overview-box-value">42</div>
+            <div class="overview-box-title">MESSAGES</div>
+            <img src="assets/layout/images/dashboard/graph-messages.svg" alt="">
+            <div class="overview-box-status">
+                +12.5% <i class="pi pi-arrow-circle-up"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 md:col-8 lg:col-8">
+        <div class="card card-w-title">
+            <h5>Statistics</h5>
+            <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
+        </div>
+    </div>
+    <div class="col-12 md:col-4 lg:col-4">
+        <div class="timeline card card-w-title">
+            <h5>Timeline</h5>
+            <ul>
+                <li>
+                    <i class="pi pi-image"></i>
+                    <span class="timeline-event-title">Uploaded Images</span>
+                    <span class="timeline-event-time">15m</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="grid">
+                        <div class="col-6">
+                            <img src="assets/layout/images/dashboard/image-1.jpg" alt="">
+                        </div>
+                        <div class="col-6">
+                            <img src="assets/layout/images/dashboard/image-2.jpg" alt="">
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <i class="pi pi-star"></i>
+                    <span class="timeline-event-title">Favorites</span>
+                    <span class="timeline-event-time">1h</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                </li>
+                <li>
+                    <i class="pi pi-users"></i>
+                    <span class="timeline-event-title">Meeting</span>
+                    <span class="timeline-event-time">2h</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                </li>
+                <li>
+                    <i class="pi pi-money-bill"></i>
+                    <span class="timeline-event-title">Payment Received</span>
+                    <span class="timeline-event-time">3h</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 xl:col-6">
+        <div class="expenses card card-w-title">
+            <h5>Expenses</h5>
+            <div class="chart">
+                $5500
+            </div>
+            <div class="grid expenses-legend">
+                <div class="col-12 lg:col-4">
+                    <i class="pi pi-circle"></i>
+                    <span class="expenses-title">Printer: Color Cartridge</span>
+                    <div class="expenses-price">$420</div>
+                    <span class="legend-status">23+ more than last month</span>
+                </div>
+                <div class="col-12 lg:col-4">
+                    <i class="pi pi-circle"></i>
+                    <span class="expenses-title">Printer: B&amp;W Cartridge</span>
+                    <div class="expenses-price">$680</div>
+                    <span class="legend-status">60+ more than last month</span>
+                </div>
+                <div class="col-12 lg:col-4">
+                    <i class="pi pi-circle"></i>
+                    <span class="expenses-title">Coffee Capsules</span>
+                    <div class="expenses-price">$150</div>
+                    <span class="legend-status">8% less than last month</span>
+                </div>
+            </div>
+
+            <div class="expenses-footer">
+                <a href="#">View more details >></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 xl:col-6">
+        <div class="card card-w-title">
+            <h5>Schedule</h5>
+            <full-calendar [options]="fullcalendarOptions" ></full-calendar>
+        </div>
+    </div>
+    <div class="col-12 lg:col-6 xl:col-4">
+            <div class="card card-w-title tasks">
+                <h5>Tasks</h5>
+                <p>You have <span class="task-highlight">completed</span> 3 tasks out of 6.</p>
+                <p-progressBar [value]="50"></p-progressBar>
+
+                <ul>
+                    <li>
+                        <p-checkbox></p-checkbox>
+                        <span>Sales Reports</span>
+                        <span class="task-badge-open">Open</span>
+                    </li>
+                    <li>
+                        <p-checkbox></p-checkbox>
+                        <span>Pay Invoices</span>
+                        <span class="task-badge-open">Open</span>
+                    </li>
+                    <li>
+                        <p-checkbox></p-checkbox>
+                        <span>Birthday Party</span>
+                        <span class="task-badge-open">Open</span>
+                    </li>
+                    <li>
+                        <p-checkbox></p-checkbox>
+                        <span>Client Meeting</span>
+                        <span class="task-badge-closed">Closed</span>
+                    </li>
+                    <li>
+                        <p-checkbox></p-checkbox>
+                        <span>New Themes</span>
+                        <span class="task-badge-closed">Closed</span>
+                    </li>
+                    <li>
+                        <p-checkbox></p-checkbox>
+                        <span>Flight Ticket</span>
+                        <span class="task-badge-closed">Closed</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 lg:col-6 xl:col-4">
+            <div class="card card-w-title resolution-center p-fluid">
+                <h5>Resolution Center</h5>
+
+                <input id="username" type="text" pInputText placeholder="Username">
+
+                <input id="email" type="text" pInputText placeholder="Email">
+
+                <textarea rows="5" pInputTextarea placeholder="Message"></textarea>
+
+                <div class="resolution-button-bar">
+                    <button pButton type="button" label="Send" icon="pi pi-envelope" ></button>
+                    <button pButton type="button" label="Save" icon="pi pi-plus" class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 xl:col-4">
+            <div class="card card-w-title team">
+                <h5>Team</h5>
+                <!-- <ul>
+                    <li>
+                        <img src="assets/layout/images/avatar-1.png" library="roma-layout" />
+                        <div class="team-box">
+                            <span class="team-member">John Swisher Welch</span>
+                            <span class="team-member-account">&#64;jswisher</span>
+                        </div>
+                        <a href="#">
+                            <i class="pi pi-paperclip"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-comment"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-share-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="assets/layout/images/avatar-2.png" library="roma-layout" />
+                        <div class="team-box">
+                            <span class="team-member">Bernd Pfefferberg</span>
+                            <span class="team-member-account">&#64;pfefferberg</span>
+                        </div>
+                        <a href="#">
+                            <i class="pi pi-paperclip"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-comment"></i>
+                        </a><a href="#">
+                            <i class="pi pi-share-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="assets/layout/images/avatar-3.png" library="roma-layout" />
+                        <div class="team-box">
+                            <span class="team-member">Chinaza Akachi</span>
+                            <span class="team-member-account">&#64;chinazzza_</span>
+                        </div>
+                        <a href="#">
+                            <i class="pi pi-paperclip"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-comment"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-share-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="assets/layout/images/avatar-4.png" library="roma-layout" />
+                        <div class="team-box">
+                            <span class="team-member">Luka Miller</span>
+                            <span class="team-member-account">&#64;luk4mr</span>
+                        </div>
+                        <a href="#">
+                            <i class="pi pi-paperclip"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-comment"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-share-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="assets/layout/images/avatar-5.png" library="roma-layout" />
+                        <div class="team-box">
+                            <span class="team-member">Arlene Welch</span>
+                            <span class="team-member-account">&#64;arlene</span>
+                        </div>
+                        <a href="#">
+                            <i class="pi pi-paperclip"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-comment"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pi pi-share-alt"></i>
+                        </a>
+                    </li>
+                </ul> -->
+            </div>
+        </div>
+        <div class="col-12 xl:col-8">
+            <div class="card card-w-title live-support">
+                <h5>Live Support</h5>
+                <!-- <ul>
+                    <li class="message-from">
+                        <div class="grid">
+                            <div class="col-fixed">
+                                <img src="assets/layout/images/avatar-1.png" library="roma-layout" />
+                            </div>
+                            <div class="col">
+                                <div class="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Nam ac euismod justo, eget blandit purus.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="message-to">
+                        <div class="grid">
+                            <div class="col">
+                                <div class="chat-message">Mauris malesuada quis risus ut consequat.
+                                    Maecenas ornare nunc risus, pulvinar euismod mi pellentesque eget.</div>
+                            </div>
+                            <div class="col-fixed">
+                                <img src="assets/layout/images/avatar-1.png" library="roma-layout" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="message-from">
+                        <div class="grid">
+                            <div class="col-fixed">
+                                <img src="assets/layout/images/avatar-2.png" library="roma-layout" />
+                            </div>
+                            <div class="col">
+                                <div class="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Nam ac euismod justo, eget blandit purus.</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul> -->
+
+                <div class="new-message">
+                    <div class="grid grid-nogutter">
+                        <div class="col">
+                            <input id="input" type="text" pInputText placeholder="Write a message..">
+                        </div>
+                        <div class="col-fixed">
+                            <button pButton type="button" label="Send"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 xl:col-4">
+            <div class="card user-card">
+                <div class="user-card-header">
+                    <img src="assets/layout/images/dashboard/bg-header.png" library="roma-layout"/>
+                </div>
+                <div class="user-card-content">
+                    <img src="assets/layout/images/avatar.png" library="roma-layout"/>
+                    <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-cog" ></button>
+
+                    <p-menu #menu [popup]="true" [model]="items"></p-menu>
+
+                    <div class="user-card-name">
+                        <span>Maria Llescas</span>
+                    </div>
+
+                    <div class="user-detail">
+                        <div class="grid">
+                            <div class="col-4">
+                                <div class="user-detail-box">
+                                    <div class="user-detail-box-name">Tasks</div>
+                                    <div class="user-detail-box-detail">3 open</div>
+                                    <i class="pi pi-list"></i>
+                                    <p-progressBar [value]="60" [showValue]="false"></p-progressBar>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="user-detail-box">
+                                    <div class="user-detail-box-name">Revenue</div>
+                                    <div class="user-detail-box-detail">+20%</div>
+                                    <i class="pi pi-dollar"></i>
+                                    <p-progressBar [value]="80" [showValue]="false"></p-progressBar>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="user-detail-box">
+                                    <div class="user-detail-box-name">Payments</div>
+                                    <div class="user-detail-box-detail">24 New</div>
+                                    <i class="pi pi-money-bill"></i>
+                                    <p-progressBar [value]="60" [showValue]="false"></p-progressBar>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="user-detail-box">
+                                    <div class="user-detail-box-name">Clients</div>
+                                    <div class="user-detail-box-detail">+80%</div>
+                                    <i class="pi pi-users"></i>
+                                    <p-progressBar [value]="50" [showValue]="false"></p-progressBar>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="user-detail-box">
+                                    <div class="user-detail-box-name">Sales</div>
+                                    <div class="user-detail-box-detail">3 open</div>
+                                    <i class="pi pi-money-bill"></i>
+                                    <p-progressBar [value]="60" [showValue]="false"></p-progressBar>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="user-detail-box">
+                                    <div class="user-detail-box-name">Tasks</div>
+                                    <div class="user-detail-box-detail">3 open</div>
+                                    <i class="pi pi-chart-bar"></i>
+                                    <p-progressBar [value]="60" [showValue]="false"></p-progressBar>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 xl:col-8">
+            <div class="card card-w-title global-sales p-fluid">
+                <h5>Global Sales</h5>
+                <p-table [value]="products" [paginator]="true" [rows]="5" styleClass="p-datatable-customers">
+					<ng-template pTemplate="header">
+						<tr>
+                            <th>
+                                Image
+                            </th>
+							<th pSortableColumn="id">ID
+								<p-sortIcon field="id"></p-sortIcon>
+							</th>
+							<th pSortableColumn="category">Category
+								<p-sortIcon field="category"></p-sortIcon>
+							</th>
+							<th pSortableColumn="price">Price
+								<p-sortIcon field="price"></p-sortIcon>
+							</th>
+							<th pSortableColumn="inventoryStatus">Status
+								<p-sortIcon field="inventoryStatus"></p-sortIcon>
+							</th>
+							<th></th>
+						</tr>
+					</ng-template>
+					<ng-template pTemplate="body" let-product>
+						<tr>
+                            <td>
+                                <span class="p-column-title">Image</span>
+                                <img src="assets/demo/images/product/{{product.image}}" width="50px" [alt]="product.image" class="product-image" /></td>
+							<td>
+                                <span class="p-column-title">Id</span>
+                                {{product.id}}</td>
+							<td>
+                                <span class="p-column-title">Category</span>
+                                {{product.category}}</td>
+							<td>
+                                <span class="p-column-title">Price</span>
+                                {{product.price | currency:'USD'}}</td>
+							<td>
+                                <span class="p-column-title">Status</span>
+                                <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+							</td>
+							<td style="text-align: center">
+								<button pButton type="button" icon="pi pi-search" style="margin-right: .5rem"></button>
+								<button pButton type="button" class="p-button-danger" icon="pi pi-times"></button>
+							</td>
+						</tr>
+					</ng-template>
+				</p-table>
+            </div>
+        </div>
+        <div class="col-12 xl:col-4">
+            <div class="card weather">
+                <div class="weather-header">
+                    <img src="assets/layout/images/dashboard/weather.png" library="roma-layout"  />
+                </div>
+                <div class="weather-content">
+                    <div class="weather-city">Antalya</div>
+                    <div class="weather-status">24&#176; C <i class="pi pi-map-marker"></i></div>
+                    <div class="weather-detail">Feels like 26&#176; Low 14 &#176; High 28 &#176;</div>
+                    <a>Change Location</a>
+                </div>
+            </div>
+        </div>
+</div>

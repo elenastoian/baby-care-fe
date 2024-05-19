@@ -1,0 +1,113 @@
+<!-- <div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
+    <a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onConfigButtonClick($event)">
+        <i class="pi pi-cog"></i>
+    </a>
+    <div class="layout-config-header">
+        <h3>Theme Customization</h3>
+        <span>Roma offers different themes for layout, topbar, menu etc.</span>
+    </div>
+    <div class="layout-config-content">
+        <div class="layout-config-section options">
+            <span class="section-name">Menu Mode</span>
+            <div class="formgroup-inline menu-type grid grid-nogutter">
+                <div class="field-radiobutton md:col-6">
+                    <p-radioButton inputId="static" name="layoutMode" value="static" [(ngModel)]="app.layoutMode"></p-radioButton>
+                    <label for="static">Static</label>
+                </div>
+                <div class="field-radiobutton md:col-6">
+                    <p-radioButton inputId="overlay" name="layoutMode" value="overlay" [(ngModel)]="app.layoutMode"></p-radioButton>
+                    <label for="overlay">Overlay</label>
+                </div>
+                <div class="field-radiobutton md:col-6">
+                    <p-radioButton inputId="horizontal" name="layoutMode" value="horizontal" [(ngModel)]="app.layoutMode" (onClick)="app.inlineUser = false"></p-radioButton>
+                    <label for="horizontal">Horizontal</label>
+                </div>
+                <div class="field-radiobutton md:col-6">
+                            <p-radioButton inputId="slim" name="layoutMode" value="slim" [(ngModel)]="app.layoutMode"></p-radioButton>
+                            <label for="slim">Slim</label>
+                </div>
+            </div>
+        </div>
+        <div class="layout-config-section options">
+            <span class="section-name">Menu Color</span>
+            <div class="formgroup-inline grid grid-nogutter">
+                <div class="field-radiobutton md:col-6">
+                    <p-radioButton inputId="dark" name="menuColor" [value]="false" [(ngModel)]="app.lightMenu"></p-radioButton>
+                    <label for="dark">Dark</label>
+                </div>
+                <div class="field-radiobutton md:col-6">
+                    <p-radioButton inputId="light" name="menuColor" [value]="true" [(ngModel)]="app.lightMenu"></p-radioButton>
+                    <label for="light">Light</label>
+                </div>
+            </div>
+        </div>
+        <div class="layout-config-section options">
+            <span class="section-name">User Profile</span>
+            <div class="formgroup-inline grid grid-nogutter">
+                <div class="field-radiobutton md:col-6">
+                    <p-radioButton inputId="inline" name="profileMode" [value]="true" [(ngModel)]="app.inlineUser" [disabled]="appMain.isHorizontal()"></p-radioButton>
+                    <label for="inline">Inline</label>
+                </div>
+                <div class="field-radiobutton md:col-6">
+                    <p-radioButton inputId="top" name="profileMode" [value]="false" [(ngModel)]="app.inlineUser"></p-radioButton>
+                    <label for="top">Overlay</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-config-section options">
+            <span class="section-name">Input Background</span>
+            <div class="formgroup-inline">
+                <div class="field-radiobutton">
+                    <p-radioButton inputId="input_outlined" name="inputstyle" [(ngModel)]="app.inputStyle"  value="outlined"></p-radioButton>
+                    <label for="input_outlined">Outlined</label>
+                </div>
+                <div class="field-radiobutton">
+                    <p-radioButton inputId="input_filled" name="inputstyle" [(ngModel)]="app.inputStyle" value="filled"></p-radioButton>
+                    <label for="input_filled">Filled</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-config-section dark">
+            <span class="section-name">Ripple Effect</span>
+            <p-inputSwitch [ngModel]="app.ripple" (onChange)="appMain.onRippleChange($event)"></p-inputSwitch>
+        </div>
+
+        <div class="layout-config-section options">
+            <span class="section-name">Orientation</span>
+            <div class="formgroup-inline grid grid-nogutter">
+                <div class="field-radiobutton md:col-6">
+                        <p-radioButton inputId="ltr" name="isRTL" [value]="false" [(ngModel)]="app.isRTL"></p-radioButton>
+                        <label for="ltr">LTR</label>
+                </div>
+                <div class="field-radiobutton md:col-6">
+                    <p-radioButton inputId="rtl" name="isRTL" [value]="true" [(ngModel)]="app.isRTL" ></p-radioButton>
+                    <label for="rtl">RTL</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-config-section colors">
+            <span class="section-name">Topbar Colors</span>
+            <div class="layout-themes topbar-colors">
+                <div *ngFor="let topbarColor of topbarColors">
+                    <a style="cursor: pointer" class="layout-config-option-color" (click)="changeTopbarColor(topbarColor.label, topbarColor.logo)"  [ngStyle]="{'background-color': topbarColor.color}">
+                        <i class="pi pi-check" *ngIf="app.topbarColor  === topbarColor.label"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-config-section colors">
+            <span class="section-name">Component Themes</span>
+            <div class="layout-themes">
+                    <div *ngFor="let t of themes">
+                        <a style="cursor: pointer" (click)="changeTheme(t.label)" [ngStyle]="{'background-color': t.color}">
+                            <i class="pi pi-check" *ngIf="themeColor === t.label"></i>
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div> -->

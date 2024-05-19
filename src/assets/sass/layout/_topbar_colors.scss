@@ -1,0 +1,679 @@
+.layout-wrapper {
+    &.layout-topbar-light {
+        .layout-topbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #d8d8dc;
+
+            .layout-topbar-icon {
+                color: #8b8b90;
+
+                &:hover {
+                    background-color: darken(#f4f4f4, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                input {
+                    color: #65656a;
+                    @include input-placeholder(#65656a);
+                }
+
+                i {
+                    color: #8b8b90;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: $textColor;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: $textColor;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-dark {
+        .layout-topbar {
+            background-color: #252529;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#333333, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #252529;
+
+                input {
+                    background-color: #252529;
+                    color: #ffffff;
+                    @include input-placeholder(#8b8b90);
+                }
+
+                i {
+                    color: #8b8b90;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #8b8b90;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-blue {
+        .layout-topbar {
+            background-color: #0772B3;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: #054e7a;
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #0772B3;
+
+                input {
+                    background-color: #0772B3;
+                    color: #ffffff;
+                    @include input-placeholder(#E0FFFB);
+                }
+
+                i {
+                    color: #E0FFFB;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #E0FFFB;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-green {
+        .layout-topbar {
+            background-color: #0F8C50;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#094D2C, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #0F8C50;
+
+                input {
+                    background-color: #0F8C50;
+                    color: #ffffff;
+                    @include input-placeholder(#E8FAF1);
+                }
+
+                i {
+                    color: #E8FAF1;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #E8FAF1;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-orange {
+        .layout-topbar {
+            background-color: #C76D09;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#703A00, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #C76D09;
+
+                input {
+                    background-color: #C76D09;
+                    color: #ffffff;
+                    @include input-placeholder(#FDF2E8);
+                }
+
+                i {
+                    color: #FDF2E8;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon  {
+                    color: #FDF2E8;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-magenta {
+        .layout-topbar {
+            background-color: #972BB1;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#5C0F6F, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #972BB1;
+
+                input {
+                    background-color: #972BB1;
+                    color: #ffffff;
+                    @include input-placeholder(#F5E5F9);
+                }
+
+                i {
+                    color: #F5E5F9;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #F5E5F9;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-bluegrey {
+        .layout-topbar {
+            background-color: #406E7E;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#1F434F, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #406E7E;
+
+                input {
+                    background-color: #406E7E;
+                    color: #ffffff;
+                    @include input-placeholder(#E2EEF3);
+                }
+
+                i {
+                    color: #E2EEF3;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #E2EEF3;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-deeppurple {
+        .layout-topbar {
+            background-color: #543CD9;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#2D1E81, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #543CD9;
+
+                input {
+                    background-color: #543CD9;
+                    color: #ffffff;
+                    @include input-placeholder(#DFDAF8);
+                }
+
+                i {
+                    color: #DFDAF8;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #DFDAF8;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-brown {
+        .layout-topbar {
+            background-color: #794F36;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#462816, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #794F36;
+
+                input {
+                    background-color: #794F36;
+                    color: #ffffff;
+                    @include input-placeholder(#F3E9E3);
+                }
+
+                i {
+                    color: #F3E9E3;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #F3E9E3;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-lime {
+        .layout-topbar {
+            background-color: #849201;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#424900, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #849201;
+
+                input {
+                    background-color: #849201;
+                    color: #ffffff;
+                    @include input-placeholder(#F8FAE6);
+                }
+
+                i {
+                    color: #F8FAE6;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #F8FAE6;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-rose {
+        .layout-topbar {
+            background-color: #8F3939;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#531818, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #8F3939;
+
+                input {
+                    background-color: #8F3939;
+                    color: #ffffff;
+                    @include input-placeholder(#F8DDDD);
+                }
+
+                i {
+                    color: #F8DDDD;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #F8DDDD;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-cyan {
+        .layout-topbar {
+            background-color: #0C8990;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#044A4E, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #0C8990;
+
+                input {
+                    background-color: #0C8990;
+                    color: #ffffff;
+                    @include input-placeholder(#DCF7F8);
+                }
+
+                i {
+                    color: #DCF7F8;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #DCF7F8;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-teal {
+        .layout-topbar {
+            background-color: #337E59;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#12432B, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #337E59;
+
+                input {
+                    background-color: #337E59;
+                    color: #ffffff;
+                    @include input-placeholder(#DDF7EB);
+                }
+
+                i {
+                    color: #DDF7EB;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #DDF7EB;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-deeporange {
+        .layout-topbar {
+            background-color: #D74A1D;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#741E03, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #D74A1D;
+
+                input {
+                    background-color: #D74A1D;
+                    color: #ffffff;
+                    @include input-placeholder(#F8E2DA);
+                }
+
+                i {
+                    color: #F8E2DA;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #F8E2DA;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-indigo {
+        .layout-topbar {
+            background-color: #3D53C9;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#16246E, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #3D53C9;
+
+                input {
+                    background-color: #3D53C9;
+                    color: #ffffff;
+                    @include input-placeholder(#DDE2FF);
+                }
+
+                i {
+                    color: #DDE2FF;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #DDE2FF;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-pink {
+        .layout-topbar {
+            background-color: #BF275B;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#6E072A, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #BF275B;
+
+                input {
+                    background-color: #BF275B;
+                    color: #ffffff;
+                    @include input-placeholder(#FFDAE6);
+                }
+
+                i {
+                    color: #FFDAE6;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #FFDAE6;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.layout-topbar-purple {
+        .layout-topbar {
+            background-color: #7F32DA;
+
+            .layout-topbar-icon {
+                color: #ffffff;
+
+                &:hover {
+                    background-color: lighten(#490F8D, 5%);
+                }
+            }
+
+            .layout-topbar-search {
+                background-color: #7F32DA;
+
+                input {
+                    background-color: #7F32DA;
+                    color: #ffffff;
+                    @include input-placeholder(#ECDCFF);
+                }
+
+                i {
+                    color: #ECDCFF;
+                }
+            }
+
+            .user-profile {
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    color: #ECDCFF;
+                }
+
+                a:hover {
+                    .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}

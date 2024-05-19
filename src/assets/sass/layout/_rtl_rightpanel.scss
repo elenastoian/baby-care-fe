@@ -1,0 +1,30 @@
+.layout-rtl {
+    .layout-right-panel {
+        direction: rtl;
+        right: auto;
+        left: -288px;
+        border-left: 0;
+        border-right: solid 1px #ebebef;
+        transition: left $transitionDuration;
+
+        &.layout-right-panel-active {
+            right: auto;
+            left: 0;
+        }
+
+        .p-tabview.p-tabview-top {
+            .p-tabview-nav {
+                li {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .status-title {
+            i {
+                float: left;
+            }
+        }
+    }
+}

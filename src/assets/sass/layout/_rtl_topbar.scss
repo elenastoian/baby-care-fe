@@ -1,0 +1,114 @@
+.layout-rtl {
+    &.layout-wrapper {
+
+        .layout-topbar {
+            direction: rtl;
+            left: auto;
+            right: 0;
+
+            .layout-topbar-logo {
+                margin-left: 0px;
+                margin-right: 1.5em;
+            }
+
+            .layout-topbar-search {
+                margin-left: 0;
+                margin-right: 120px;
+
+                i {
+                    left: auto;
+                    right: 11px;
+                }
+
+                input {
+                    padding: 6px 35px 6px 6px;
+                }
+            }
+
+            .topbar-menu {
+                float: left;
+
+                .user-profile {
+                    .layout-profile-icon {
+                        margin: 14px 8px 0 0;
+                    }
+                }
+
+                > li {
+                    float: left;
+
+                    > a {
+                        .layout-profile-userinfo {
+                            text-align: right;
+                            margin: 6px 8px 0 0;
+                        }
+                    }
+
+                    > ul {
+                        right: auto;
+                        left: 0;
+
+                        a {
+                            text-align: right;
+
+                            .topbar-menu-info {
+                                left: auto;
+                                right: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .layout-right-panel-button {
+                float: left;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 896px) {
+    .layout-rtl {
+        &.layout-wrapper {
+            .layout-topbar {
+                .layout-topbar-search {
+                    left: auto;
+                    right: 0;
+                    margin-right: 0;
+                    
+                    i {
+                        left: auto;
+                    }
+                }
+
+                .topbar-menu {
+                    .user-profile {
+                        ul {
+                            width: 211px;
+
+                            &:before, &:after {
+                                right: 190px;
+                                left: auto;
+                            }
+
+                            &:before {
+                                margin-right: -10px;
+                                margin-left: 0;
+                            }
+
+                            &:after {
+                                margin-left: 0;
+                                margin-right: -9px;
+                            }
+                        }
+                    }
+
+                    > li {
+                        margin-right: 0;
+                        margin-left: .5em;
+                    }
+                }
+            }
+        }
+    }
+}

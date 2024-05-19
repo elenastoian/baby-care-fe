@@ -1,0 +1,162 @@
+body {
+	background-color: #f4f4f4;
+}
+
+@mixin place($n, $t, $l) {
+	animation: $n .5s ease-in-out infinite;
+	top: $t;
+	left: $l;
+}
+
+.loader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: rotate(45deg) translate(-50%, -50%);
+
+	li {
+		list-style-type: none;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 15px;
+		height: 15px;
+		background: #0772B3;
+		border-radius: 50%;
+
+		&.dot-a{
+			@include place(a, -25px, -25px)
+		}
+
+		&.dot-b {
+			@include place(b, -25px, 0px)
+		}
+
+		&.dot-c {
+			@include place(c, -25px, 25px)
+		}
+
+		&.dot-d {
+			@include place(d, 0px, -25px)
+		}
+
+		&.dot-e {
+			@include place(e, 0px, 0px)
+		}
+
+		&.dot-f {
+			@include place(f, 0px, 25px)
+		}
+
+		&.dot-g {
+			@include place(g, 25px, -25px)
+		}
+
+		&.dot-h {
+			@include place(h, 25px, 0px)
+		}
+
+		&.dot-i{
+			@include place(i, 25px, 25px)
+		}
+	}
+}
+
+@keyframes a{
+	50% {
+		top: 0px;
+		left: -25px;
+	}
+	100% {
+		top: 0px;
+		left: -25px;
+	}
+}
+
+@keyframes b{
+	50% {
+		top: -25px;
+		left: -25px;
+	}
+	100% {
+		top: -25px;
+		left: -25px;
+	}
+}
+
+@keyframes c{
+	50% {
+		top: -25px;
+		left: 0px;
+	}
+	100% {
+		top: -25px;
+		left: 0px;
+	}
+}
+
+@keyframes d{
+	50% {
+		top: 25px;
+		left: -25px;
+	}
+	100% {
+		top: 25px;
+		left: -25px;
+	}
+}
+
+/*@keyframes e{
+	50% {
+		top: 0px;
+		left: -25px;
+	}
+	100% {
+		top: 0px;
+		left: -25px;
+	}
+}*/
+
+@keyframes f{
+	50% {
+		top: -25px;
+		left: 25px;
+	}
+	100% {
+		top: -25px;
+		left: 25px;
+	}
+}
+
+@keyframes g{
+	50% {
+		top: 25px;
+		left: 0px;
+	}
+	100% {
+		top: 25px;
+		left: 0px;
+	}
+}
+
+@keyframes h{
+	50% {
+		top: 25px;
+		left: 25px;
+	}
+	100% {
+		top: 25px;
+		left: 25px;
+	}
+}
+
+@keyframes i{
+	50% {
+		top: 0px;
+		left: 25px;
+	}
+	100% {
+		top: 0px;
+		left: 25px;
+	}
+}

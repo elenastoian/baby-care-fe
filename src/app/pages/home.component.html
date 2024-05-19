@@ -1,0 +1,87 @@
+<div class="px-4 py-6 md:px-6 lg:px-8  surface-overlay">
+
+    <div class="surface-card py-5"
+        style="background: url('../../assets/layout/images/home.jpg'); background-size: cover;">
+
+        <div class="text-700 text-center">
+            <div class="text-900 font-bold text-3xl mb-4">
+                <p style="color: #eec613;">Hello to Baby Care Application!</p>
+            </div>
+            <div class="text-700 text-xl mb-5">
+                <p style="color: #fff;">Designed for parents that need to keep track of their new born baby, and not only!</p>
+            </div>
+        </div>
+
+        <div class="flex justify-content-center flex-wrap">
+            <div class="flex align-items-center justify-content-center font-bold text-gray-900 m-3">
+                <div class="text-700 text-center">
+                    <button pButton pRipple label="See your profile"
+                        class="px-5 py-3 p-button-raised white-space-nowrap p-button-warning" style="min-width: 14rem;"
+                        (click)="goToPage('/profile')"></button>
+                </div>
+            </div>
+            <div class="flex align-items-center justify-content-center font-bold text-gray-900 m-3">
+                <div class="text-700 text-center">
+                    <button pButton pRipple label="See your babies"
+                        class="px-5 py-3 p-button-raised white-space-nowrap p-button-warning" style="min-width: 14rem;"
+                        (click)="goToPage('/babies')"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="px-4 py-2 md:px-6 lg:px-8  surface-overlay">
+    <div class="font-medium mb-3 text-3xl" style="color: #FAAF40;">What does this  platform?</div>
+    <div class="grid mt-3">
+
+        <div class="col-12 md:col-6">
+            <div class="shadow-1 p-5 surface-card text-center" style="min-height: 23rem;">
+                <div class="border-circle bg-orange-50 p-4 inline-flex justify-content-center align-items-center mb-4"
+                    style="color: #FAAF40;">
+                    <i class="pi pi-user text-5xl"></i>
+                </div>
+                <div class="text-900 font-medium text-xl mb-4">What do we offer?</div>
+                <div class="text-700 text-xl mb-4 line-height-3">Create a personalized account and add one or multiple babies, each with their own unique profile.</div>
+                <div class="text-700 text-xl mb-4 line-height-3">Track your baby's daily schedule, including feedings, diaper changes, nap times, and more.</div>
+                <div class="text-700 text-xl mb-4 line-height-3">Set up custom alarms so you never forget anything.</div>
+                <!-- <button pButton pRipple label="Learn More" class="p-button-text font-bold"></button> -->
+            </div>
+        </div>
+
+        <div class="col-12 md:col-6">
+            <div class="shadow-1 p-5 surface-card text-center" style="min-height: 23rem;">
+                <div class="border-circle bg-orange-50 p-4 inline-flex justify-content-center align-items-center mb-4"
+                    style="color: #FAAF40;">
+                    <i class="pi pi-user text-5xl"></i>
+                </div>
+                <div class="text-900 font-medium text-xl mb-4">Advantages</div>
+                <div class="text-700 text-xl mb-4 line-height-3">Share access with co-parents, caregivers, or family members to ensure everyone is on the same page.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="px-4 py-2 md:px-6 lg:px-8  surface-overlay">
+    <div class="font-medium mb-3 text-3xl" style="color: #FAAF40;">Who built this website?</div>
+    <div class="grid mt-3">
+
+        <div class="col-12 md:col-12">
+            <div class="shadow-1 p-5 surface-card text-center" style="min-height: 23rem;">
+                <div class="border-circle bg-orange-50 p-4 inline-flex justify-content-center align-items-center mb-4"
+                    style="color: #FAAF40;">
+                    <i class="pi pi-book text-5xl"></i>
+                </div>
+                <div class="text-900 font-medium text-xl mb-4">Hi! I am  Elena Stoian, a Software Developer who wants to push limits and improve.</div>
+                <div class="text-700 text-xl mb-4 line-height-3">I would like to keep in touch on  <a href="https://www.linkedin.com/in/elena-stoian-61845b195/">LinkedIn.</a>
+                </div>
+
+                <div class="inline-flex justify-content-center align-items-center mb-4">
+                    
+                        <button pButton pRipple label="Download CV" icon="pi pi-download" class="px-5 py-3 p-button-raised white-space-nowrap p-button-warning" style="min-width: 14rem;" (click)="downloadCV()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

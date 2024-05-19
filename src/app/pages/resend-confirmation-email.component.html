@@ -1,0 +1,39 @@
+<div class="min-h-full bg-white">
+    <div class="flex justify-content-center flex-wrap pt-8 px-2">
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+            <div class="text-center mb-5">
+                <img src="../assets/images/logo/owners-valley-logo-rent.png" alt="Image" height="50" class="mb-3">
+                <div class="text-900 text-3xl font-medium mb-3">Email Confirmation</div>
+                <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+                <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer" (click)="goToPage('register')">Create one now for free!</a>
+            </div>
+
+            <div>
+                <label for="email1" class="block text-900 font-medium mb-2">Enter the email that you want to confirm below</label>
+                <input [(ngModel)]="email" id="email1" type="text" pInputText class="w-full mb-3" (keyup.enter)="onEnterKeyPressed($event)">
+                <small *ngIf="emailFieldIsEmptyError" id="username2-help" class="p-error block pb-3">Email field can not be empty.</small>
+                <small *ngIf="emailAlreadyConfirmedOrWrongError" id="username2-help" class="p-error block pb-3">This email is already confirmed or it is wrong.</small>
+                
+                <div class="w-full flex justify-content-center flex-wrap">
+                    <div class="w-4">
+                        <button pButton pRipple label="Send confirmation email" icon="pi pi-user" class="w-full p-button-raised p-button-warning" (click)="sendResendConfirmationEmailService()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog [(visible)]="loadingTabDisplay" appendTo="body" [modal]="true"
+    [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '40vw'}" [closable]="false"
+    [showHeader]="false">
+    <div class="flex flex-column align-items-center my-4">
+        <span
+            class="flex align-items-center justify-content-center bg-green-100 text-green-800 mr-3 border-circle mb-3"
+            style="width:64px;height:64px">
+            <i class="pi pi-spin pi-spinner text-6xl"></i>
+        </span>
+        <div class="font-medium text-2xl text-900">Please wait a few seconds.</div>
+    </div>
+
+</p-dialog>

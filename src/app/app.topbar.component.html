@@ -1,0 +1,89 @@
+<div *ngIf="!userInfo.isAutheticated">
+    <div class="layout-topbar">
+        <div style="float: right; padding: 0.5rem;" class="menu-custom-css">
+            <button pButton pRipple type="button" label="Sign Up" class="p-button-raised p-button-warning"
+                style="min-width: 6rem;" (click)="goToPage('/register')"></button>
+        </div>
+
+        <div style="float: right; padding: 0.5rem;" class="menu-custom-css">
+            <button pButton pRipple type="button" label="Sign In" class="p-button-raised p-button-warning"
+                style="min-width: 6rem;" (click)="goToPage('/login')"></button>
+        </div>
+    </div>
+</div>
+
+<!-- When Loged -->
+<div *ngIf="userInfo.isAutheticated">
+    <div class="layout-topbar">
+
+        <!-- <a href="#" class="layout-topbar-logo">
+            <img id="topbar-logo" style="min-height: 2rem;" src="../assets/images/logo/owners-valley-logo-rent.png"
+                title="Owners Valley Logo" alt="Logo of Owners Valley the site where landlords and tenants rent">
+        </a> -->
+
+        <ul class="topbar-menu">
+            <li class="user-profile" [ngClass]="{'active-topmenuitem fadeInDown': appMain.topbarUserMenuActive}">
+                
+                <a href="#" (click)="appMain.onTopbarUserMenuButtonClick($event)" *ngIf="!app.inlineUser">
+                    <img src="..\assets\layout\images\avatar.png" alt="Profile" />
+                </a>
+
+                <ul class="fadeInDown">
+                    <li>
+                        <a (click)="goToPage('/')" class="cursor-pointer">
+                            <i class="pi pi-fw pi-home"></i>
+                            <span> Home</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a (click)="goToPage('/profile')" class="cursor-pointer">
+                            <i class="pi pi-fw pi-building"></i>
+                            <span> Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a (click)="goToPage('/babies')" class="cursor-pointer">
+                            <i class="pi pi-fw pi-user"></i>
+                            <span> Babies</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a (click)="goToPage('/appointments')" class="cursor-pointer">
+                            <i class="pi pi-fw pi-user"></i>
+                            <span> Appointments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a (click)="logout()" class="cursor-pointer">
+                            <i class="pi pi-fw pi-sign-out"></i>
+                            <span> Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- <div style="float: right; padding-top: 0.5rem;">
+            <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" [autoDisplayFirst]="false" [style]="{'minWidth':'70px', 'width': '70px'}" optionLabel="name" [filter]="false" filterBy="name" [showClear]="false" placeholder="" (click)="deselect()" (onChange)="changeLang($event)">
+                
+                <ng-template pTemplate="selectedItem">
+                    <div class="country-item country-item-value" *ngIf="selectedCountry">
+                        <img src="../assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + selectedCountry.code.toLowerCase()" />
+                    </div>
+                </ng-template>
+
+                <ng-template let-country pTemplate="item">
+                    <div class="country-item" >
+                        <img src="../assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" />
+                        <div>{{country.name}}</div>
+                    </div>
+                </ng-template>
+                
+            </p-dropdown>
+        </div> -->
+    </div>
+</div>

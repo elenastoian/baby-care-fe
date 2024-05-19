@@ -1,0 +1,15 @@
+.layout-rtl {
+    .layout-footer {
+        direction: rtl;
+        padding: 1.5em 3em 1.5em 1.5em;
+    
+        .footer-icons {
+            text-align: left;
+    
+            a {
+                margin-right: 0;
+                margin-left: 16px;
+            }
+        }    
+    }
+}

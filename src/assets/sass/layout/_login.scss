@@ -1,0 +1,136 @@
+.login-body {
+    padding: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    height: 100vh;
+    background: url("../../layout/images/pages/login-bg.jpg") no-repeat;
+    background-size: cover;
+
+    .login-panel {
+        padding: 0 70px 20px 70px;
+        height: 100%;
+        width: 556px;
+        position: absolute;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        @include border-radius($borderRadius);
+        
+        .login-panel-content {
+            margin-top: 33.3%;
+        }
+
+        .logo-container {
+            text-align: left;
+        
+            img {
+                display: block; 
+                margin-bottom: 25px;
+            }
+        }
+
+        .username-container, .password-container {
+            text-align: left;
+        }
+
+        h1 {
+            display: inline-block;
+            font-size: 16px;
+            background-color: #feedbc;
+            margin: 0 0 16px 0;
+            color: #666666;
+            padding: 4px 8px;
+            @include border-radius($borderRadius);
+        }
+
+        .guest-sign-in {
+            color: #303030;
+        }
+        
+        label {
+            display: block;
+            color: #252529;
+            margin: .5em 0 .5em 0;
+        }
+
+        input {
+            background: #ffffff;
+            border: 1px solid #65656a;
+            color: #252529;
+            font-size: $fontSize;
+            padding: .429em;
+            @include transition(border-color $transitionDuration, box-shadow $transitionDuration);
+            @include border-radius($borderRadius);
+        }
+
+        .forgetpassword-container {
+            padding-top: 1em;
+            text-align: right;
+        }
+
+        .rememberme-container {
+            padding-top: 1em;
+
+            label {
+                display: inline;
+                vertical-align: middle;
+            }
+        }
+
+        button {
+            margin-top: .5em;
+            display: block;
+            min-width: 120px;
+        }
+        
+        a{
+            color: #1cb9d7;
+        }
+
+        .footer {
+            color: #65656a;
+            margin-top: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 40em) {
+
+    .login-body {
+
+        .login-image{
+            height: calc(100%);
+            width: calc(100%);
+            transform: scale(1.5);
+            background-position-x: -290px;
+            background-position-y: -160px;
+        }
+
+        .login-panel {
+            left: 0;
+            bottom: 0%;
+            width: 100%;
+            margin-bottom: 0px;
+            margin-top: 0;
+            margin-left: 0;
+            padding: 0 27px 20px 28px;
+            height: calc(100% - 128px);
+
+            .login-panel-content {
+                margin-top: 30px;
+            }
+
+            input {
+                width: 100%;
+            }
+
+            .footer {
+                font-size: 11px;
+                padding-right: 11px;
+                margin-top: 60px;
+            }
+        }
+
+    }
+    
+}

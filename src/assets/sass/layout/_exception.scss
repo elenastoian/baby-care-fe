@@ -1,0 +1,83 @@
+.exception-body {
+    padding: 0;
+    height: 100vh;
+    $borderColor: transparent;
+
+    &.error {
+        background: url("../../layout/images/pages/error-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .exception-panel {
+            border-left: #f56f64 solid 23px;
+        }
+    }
+
+    &.notfound {
+        background: url("../../layout/images/pages/notfound-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+
+        .exception-panel {
+            border-left: #0f97c7 solid 23px;
+        }
+    }
+
+    &.accessdenied {
+        background: url("../../layout/images/pages/accessdenied-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .exception-panel {
+            border-left: #f5b064 solid 23px;
+        }
+    }
+
+    .exception-panel {
+        position: fixed;
+        height: 100%;
+        width: 410px;
+        background-color: rgba(235, 235, 239, 0.9);
+
+        .exception-content{
+            position: absolute;
+            width: 100%;
+            margin-top: 150px;
+            text-align: center;
+
+            p {
+                margin: 8px 0 70px 0;
+                color: #65656a;
+            }
+
+            .h1 {
+                font-size: 25px;
+                font-weight: 500;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #252529;
+                @include border-radius($borderRadius);
+                margin: 0;
+            }
+
+            img {
+                height: 87px;
+                margin-bottom: 44px;
+            }
+        }
+    }
+    
+}
+
+@media screen and (max-width: 40em) {
+
+    .exception-body {
+        .exception-panel {
+            width: 100%;
+        }
+    }
+    
+}

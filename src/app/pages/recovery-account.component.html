@@ -1,0 +1,44 @@
+<div class="min-h-full bg-white">
+    <div class="flex justify-content-center flex-wrap pt-8 px-2">
+
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+            <div class="text-center mb-5">
+                <img src="../assets/images/logo/owners-valley-logo-rent.png" alt="Image" height="50" class="mb-3">
+                <div class="text-900 text-3xl font-medium mb-3">Account Recovery</div>
+                <span class="text-600 font-medium line-height-3">Forgot you password?</span>
+                <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
+                    (click)="goToPage('password-recovery')">Find it now!</a>
+            </div>
+
+            <div>
+                <label for="email1" class="block text-900 font-medium mb-2">Enter your email in the field below and press the button to obtain an account recovery mail.</label>
+                <input [(ngModel)]="email" id="email1" type="text" pInputText class="w-full mb-3" (keyup.enter)="onEnterKeyPressed($event)">
+
+                <small *ngIf="emailFieldIsEmptyError" id="username2-help"
+                    class="p-error block pb-3">Email field can not be empty.</small>
+
+                <div class="w-full flex justify-content-center flex-wrap">
+                    <div class="w-4"> <button pButton pRipple label="Send Recovery Email"
+                            icon="pi pi-envelope" class="w-full p-button-raised p-button-warning" (click)="sendAccountRecoveryEmail()"></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<p-dialog [(visible)]="loadingTabDisplay" appendTo="body" [modal]="true"
+    [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '40vw'}" [closable]="false"
+    [showHeader]="false">
+    <div class="flex flex-column align-items-center my-4">
+        <span
+            class="flex align-items-center justify-content-center bg-green-100 text-green-800 mr-3 border-circle mb-3"
+            style="width:64px;height:64px">
+            <i class="pi pi-spin pi-spinner text-6xl"></i>
+        </span>
+        <div class="font-medium text-2xl text-900">Please wait a few seconds.</div>
+    </div>
+
+</p-dialog>

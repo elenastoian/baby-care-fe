@@ -1,0 +1,15 @@
+<div *ngIf="tokenConfirmationSucceed" class="bg-gray-900 p-8 flex justify-content-center md:justify-content-start bg-no-repeat bg-cover md:bg-contain" style="background-image: url('assets/images/blocks/cta/cta-2.png')">
+    <div class="px-5">
+        <div class="text-white font-bold text-6xl">Your email has been confirmed.</div>
+        <div class="text-blue-200 font-bold text-6xl">You can now log in.</div>
+        <button pButton pRipple label="Sign In" class="font-bold px-5 py-3" (click)="goToPage('/login')"></button>
+    </div>
+</div>
+
+<div *ngIf="!tokenConfirmationSucceed" class="bg-gray-900 p-8 flex justify-content-center md:justify-content-start bg-no-repeat bg-cover md:bg-contain" style="background-image: url('assets/images/blocks/cta/cta-2.png')">
+    <div class="px-5">
+        <div class="text-white font-bold text-6xl">Your email has NOT been confirmed.</div>
+        <div class="text-blue-200 font-bold text-6xl">Please try again. You can resend the confirmation email by clicking on the botton below.</div>
+        <button pButton pRipple label="Resend confirmation email" class="font-bold px-5 py-3" (click)="goToPage('/resend-confirmation-email')"></button>
+    </div>
+</div>

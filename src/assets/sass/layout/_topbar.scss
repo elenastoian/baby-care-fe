@@ -1,0 +1,313 @@
+.layout-wrapper {
+
+    .layout-topbar {
+        height: 70px;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        padding: 12px 20px;
+        @include clearfix();
+        @include shadow(0 2px 10px 0 rgba(0, 0, 0, 0.16));
+
+        .layout-menu-button {
+            display: inline-block;
+            vertical-align: middle;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            @include border-radius(50%);
+            @include transition(background-color $transitionDuration);
+
+            i {
+                line-height: inherit;
+                font-size: 30px;
+            }
+        }
+
+        .layout-topbar-logo {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 1.5em;
+
+            img {
+                height: 24px;
+            }
+        }
+
+        .layout-topbar-search {
+            position: relative;
+            vertical-align: middle;
+            margin-left: 120px;
+
+            i {
+                position: absolute;
+                top: 0px;
+                left: 11px;
+                font-size: 16px;
+            }
+
+            input {
+                font-family: $fontFamily;
+                font-size: 13px;
+                width: 188px;
+                padding: 6px 6px 6px 35px;
+                border: 1px solid transparent;
+                @include border-radius($borderRadius);
+                @include transition(border-color $transitionDuration);
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .topbar-menu {
+            float: right;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+
+            .user-profile {
+                padding: 0 16px;
+
+                .layout-profile-icon {
+                    display: inline-block;
+                    margin: 14px 0 0 8px;
+                    vertical-align: top;
+                    @include transition(transform $transitionDuration);
+                }
+
+                a {
+                    height: 36px;
+                    i {
+                        vertical-align: middle;
+                    }
+                    span {
+                        vertical-align: middle;
+                    }
+                }
+
+                ul {
+                    width: 250px;
+                }
+
+                .layout-profile-name, .layout-profile-role, .layout-profile-icon {
+                    @include transition(color $transitionDuration);
+                }
+            }
+
+            > li {
+                float: right;
+                position: relative;
+
+                > a {
+                    position: relative;
+                    display: block;
+                    text-align: center;
+                    @include border-radius(50%);
+                    @include transition(background-color $transitionDuration);
+
+                    .topbar-icon {
+                        width: 45px;
+                        height: 45px;
+                        line-height: 45px;
+                        text-align: center;
+                        font-size: 1.5em;
+                        vertical-align: middle;
+                    }
+
+                    .layout-profile-userinfo {
+                        text-align: left;
+                        display: inline-block;
+                        margin: 6px 0 0 8px;
+                        vertical-align: top;
+
+                        .layout-profile-name {
+                            font-size: 14px;
+                            display: block;
+                        }
+
+                        .layout-profile-role {
+                            font-size: 12px;
+                            margin-top: 2px;
+                            display: block;
+                        }
+                    }
+
+                    > img {
+                        width: 36px;
+                        margin-top: 4px;
+                    }
+                }
+
+                > ul {
+                    position: absolute;
+                    background: $menuBgColor;
+                    top: 58px;
+                    right: 0;
+                    display: none;
+                    width: 283px;
+                    -webkit-animation-duration: $transitionDuration;
+                    -moz-animation-duration: $transitionDuration;
+                    animation-duration: $transitionDuration;
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    @include border-radius($borderRadius);
+                    @include shadow(0 0px 10px 0 rgba(0, 0, 0, 0.16));
+
+                    a {
+                        padding: .75em 1em;
+                        text-align: left;
+                        display: block;
+                        width: 100%;
+                        height: 54px;
+                        color: $menuitemTextColor;
+                        position: relative;
+                        @include transition(background-color $transitionDuration);
+                        @include border-radius($borderRadius);
+
+                        img {
+                            margin-top: 5px;
+                            width: 30px;
+                        }
+
+                        .topbar-menu-info {
+                            left: 50px;
+                            top: 12px;
+                            position: absolute;
+
+                            .topbar-menu-name {
+                                font-size: 12px;
+                                display: block;
+                                font-weight: 500;
+                                color: $menuitemTextColor;
+                            }
+
+                            .topbar-menu-role {
+                                font-size: 12px;
+                                display: block;
+                                color: $menuitemIconColor;
+                            }
+                        }
+
+                        &:hover {
+                            background-color: $menuitemHoverBgColor;
+                        }
+                    }
+                }
+
+                &.active-topmenuitem {
+                    > ul {
+                        display: block;
+                        z-index: 999;
+                    }
+
+                    .layout-profile-icon {
+                        @include rotate(-180deg);
+                    }
+                }
+            }
+        }
+
+        .layout-right-panel-button {
+            float: right;
+            width: 45px;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            @include border-radius(50%);
+            @include transition(background-color $transitionDuration);
+
+            i {
+                font-size: 1.5em;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 896px) {
+    .layout-wrapper {
+        .layout-topbar {
+            height: 70px;
+
+            .layout-topbar-search {
+                background-color: #f4f4f4;
+                position: absolute;
+                left: 0;
+                width: 100%;
+                top: 70px;
+                margin-left: 0;
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+                @include shadow(0 2px 10px 0 rgba(0, 0, 0, 0.16));
+
+                i {
+                    left: initial;
+                    top: 11px;
+                }
+
+                input {
+                    background: transparent;
+                }
+            }
+
+            .topbar-menu {
+                .user-profile {
+                    padding: 5px 0 0 0;
+
+                    .layout-profile-icon {
+                        display: none;
+                    }
+
+                    .layout-profile-userinfo {
+                        display: none;
+                    }
+
+                    ul {
+                        width: 211px;
+
+                        &:before, &:after {
+                            bottom: 100%;
+                            border: solid transparent;
+                            content: " ";
+                            height: 0;
+                            width: 0;
+                            position: absolute;
+                            pointer-events: none;
+                            left: 190px;
+                        }
+
+                        &:before {
+                            border-width: 10px;
+                            margin-left: -10px;
+                        }
+
+                        &:after {
+                            border-width: 9px;
+                            margin-left: -9px;
+                        }
+                    }
+                }
+
+                > li {
+                    margin-right: .5em;
+
+                    a {
+                        img {
+                            margin-top: 0;
+                        }
+                    }
+
+                    > ul {
+                        width: 250px;
+                    }
+                }
+            }
+        }
+    }
+}

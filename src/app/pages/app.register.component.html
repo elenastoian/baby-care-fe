@@ -1,0 +1,84 @@
+<div class="min-h-full bg-white">
+    <div class="flex justify-content-center flex-wrap pt-8 px-2">
+        <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+            <div class="text-center mb-5">
+               
+                <div class="text-900 text-3xl font-medium mb-3">Register</div>
+                <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
+                    (click)="goToPage('/login')">Login</a>
+            </div>
+
+            <div>
+
+                <label for="name" class="block text-900 font-medium mb-2">Name</label>
+                <input [(ngModel)]="name" id="name" type="text" pInputText class="w-full mb-2"
+                    (keyup.enter)="onEnterKeyPressed($event)">
+
+                <label for="email1" class="block text-900 font-medium mb-2">Email</label>
+                <input [(ngModel)]="email" id="email1" type="text" pInputText class="w-full mb-2"
+                    (keyup.enter)="onEnterKeyPressed($event)">
+                <small *ngIf="emailTakenErrorFlag" id="username2-help" class="p-error block mb-3"
+                    style="padding:0.1rem;">This email is already taken.</small>
+                <small *ngIf="emailIsNotValidErrorFlag" id="username2-help" class="p-error block mb-3"
+                    style="padding:0.1rem;">This email is not valid.</small>
+                <small *ngIf="emailIsEmptyErrorFlag" id="username2-help" class="p-error block mb-3"
+                    style="padding:0.1rem;">The email can not be empty.</small>
+
+                <!-- <label for="email2" class="block text-900 font-medium mb-2">Retype Email</label>
+                <input [(ngModel)]="emailRetype" id="email2" type="text" pInputText class="w-full mb-2"
+                    (keyup.enter)="onEnterKeyPressed($event)">
+                <small *ngIf="emailFieldsDoNotMatchFlag" id="username2-help" class="p-error block mb-3"
+                    style="padding:0.1rem;">Email fields do not match.</small> -->
+
+                <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+                <input [(ngModel)]="password" id="password1" type="password" pInputText class="w-full mb-3"
+                    (keyup.enter)="onEnterKeyPressed($event)">
+
+                <small *ngIf="passwordCanNotBeEmptyFlag" id="username2-help" class="p-error block mb-3"
+                    style="padding:0.1rem;">Password field can not be empty.</small>
+                <small *ngIf="passwordIsToShortFlag" id="username2-help" class="p-error block mb-3"
+                    style="padding:0.1rem;">Password needs to have at least 8 characters.</small>
+
+                <label for="password2" class="block text-900 font-medium mb-2">Password Retype</label>
+                <input [(ngModel)]="passwordRetype" id="password2" type="password" pInputText class="w-full mb-3"
+                    (keyup.enter)="onEnterKeyPressed($event)">
+
+                <small *ngIf="passwordFieldsDoNotMatch" id="username2-help" class="p-error block mb-3"
+                    style="padding:0.1rem;">Password fields do not match.</small>
+
+                <small *ngIf="somethingWentWrong" id="username2-help" class="p-error block mb-3"
+                    style="padding:0.1rem;">Something went wrong. Please check you provided a valid email address.</small>
+
+                <!-- <div class="field mb-4 col-12">
+                    <p>text<a class="cursor-pointer"
+                            (click)="goToPage('terms-and-conditions')">text</a>
+                            text
+                        <a class="cursor-pointer" (click)="goToPage('privacy-notice')">text</a>.
+                    </p>
+                </div> -->
+
+                <div class="w-full flex justify-content-center flex-wrap">
+                    <div class="w-4">
+                        <button pButton pRipple label="Sign Up" icon="pi pi-user"
+                            class="w-full p-button-raised p-button-warning" (click)="runRegistrationProcess()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<p-dialog [(visible)]="loadingTabDisplay" appendTo="body" [modal]="true"
+    [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '40vw'}" [closable]="false"
+    [showHeader]="false">
+    <div class="flex flex-column align-items-center my-4">
+        <span
+            class="flex align-items-center justify-content-center bg-green-100 text-green-800 mr-3 border-circle mb-3"
+            style="width:64px;height:64px">
+            <i class="pi pi-spin pi-spinner text-6xl"></i>
+        </span>
+        <div class="font-medium text-2xl text-900">Please wait a few seconds.</div>
+    </div>
+
+</p-dialog>
