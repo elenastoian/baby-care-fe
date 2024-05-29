@@ -1,74 +1,95 @@
- 
 <div class="surface-ground">
   <div class="surface-section px-6 py-5">
-      <div class="flex align-items-start flex-column lg:flex-row lg:justify-content-between">
-          <div class="flex align-items-start flex-column md:flex-row">
-            
-               <div>
-                  <span class="text-900 font-medium text-3xl">Hello, {{parent?.name}}</span>
-              </div> 
-          </div>
-          <!-- <div class="mt-3 lg:mt-0">
-              <button pButton pRipple icon="pi pi-bookmark" class="p-button-rounded mr-2"></button>
-              <button pButton pRipple icon="pi pi-heart" class="p-button-rounded p-button-success mr-2"></button>
-              <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-help"></button>
-          </div> -->
-      </div> 
-  </div>
-
-  <!--PARENT DATA-->
-  <div class="px-6 py-5">
-      <div class="surface-card p-4 shadow-2 border-round">
-        <div class="flex align-items-center justify-content-between mb-3">
-            <div class="font-medium text-3xl text-900 mb-3">Parent Data</div>
-            <p-button label="Edit" onclick="redirectToEditParentDataPage()" />
-        </div>
-          <div class="text-500 mb-5">These are your personal data.</div>
-
+    <div class="flex align-items-start flex-column lg:flex-row lg:justify-content-between">
+      <div class="flex align-items-start flex-column md:flex-row">
+        <div>
+          <span class="text-900 font-medium text-3xl">Hello, {{parent?.name}}</span>
           
-          <ul class="list-none p-0 m-0 border-top-1 border-300">
-              <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
-                  <div class="text-500 w-full md:w-2 font-medium">Name</div>
-                  <div class="text-900 w-full md:w-10">{{parent?.name}}</div>
-              </li>
-              <li class="flex align-items-center py-3 px-2 flex-wrap">
-                  <div class="text-500 w-full md:w-2 font-medium">Date of Birth</div>
-                  <div class="text-900 w-full md:w-10 line-height-3">{{parent?.dateOfBirth}}</div>
-              </li>
-              <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
-                  <div class="text-500 w-full md:w-2 font-medium">Age</div>
-                  <div class="text-900 w-full md:w-10">{{parent?.age}}</div>
-              </li>
-              <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
-                <div class="text-500 w-full md:w-2 font-medium">Sex</div>
-                <div class="text-900 w-full md:w-10">{{parent?.sex}}</div>
-            </li>
-            <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
-                <div class="text-500 w-full md:w-2 font-medium">Location</div>
-                <div class="text-900 w-full md:w-10">{{parent?.location}}</div>
-            </li>
-          </ul>
+        </div>
       </div>
+    </div>
   </div>
 
-  <!--ACCOUNT DATA-->
+  <!-- PARENT DATA -->
+  <div class="px-6 py-5">
+    <p-toast></p-toast>
+    <div class="surface-card p-4 shadow-2 border-round">
+      <div class="flex align-items-center justify-content-between mb-3">
+        <div class="font-medium text-3xl text-900 mb-3">Parent Data</div>
+        <p-button *ngIf="!isEditModeForParentData" label="Edit" (click)="isEditModeForParentData = true" />
+        <p-button *ngIf="isEditModeForParentData" label="Save" (click)="updateParent()" />
+
+      </div>
+      <div class="text-500 mb-5">These are your personal data.</div>
+
+      <ul class="list-none p-0 m-0 border-top-1 border-300">
+        <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+          <div class="text-500 w-full md:w-2 font-medium">Name</div>
+          <div class="text-900 w-full md:w-10">
+            <span *ngIf="!isEditModeForParentData">{{parent?.name}}</span>
+            <input *ngIf="isEditModeForParentData" [(ngModel)]="parent.name" class="w-full"/>
+          </div>
+        </li>
+        <li class="flex align-items-center py-3 px-2 flex-wrap">
+          <div class="text-500 w-full md:w-2 font-medium">Date of Birth</div>
+          <div class="text-900 w-full md:w-10 line-height-3">
+            <span *ngIf="!isEditModeForParentData">{{parent?.dateOfBirth}}</span>
+            <input *ngIf="isEditModeForParentData" [(ngModel)]="parent.dateOfBirth" type="date" class="w-full"/>
+          </div>
+        </li>
+        <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+          <div class="text-500 w-full md:w-2 font-medium">Age</div>
+          <div class="text-900 w-full md:w-10">
+            <span>{{parent?.age}}</span>
+          </div>
+        </li>
+        <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+          <div class="text-500 w-full md:w-2 font-medium">Sex</div>
+          <div class="text-900 w-full md:w-10">
+            <span *ngIf="!isEditModeForParentData">{{parent?.sex}}</span>
+            <select *ngIf="isEditModeForParentData" [(ngModel)]="parent.sex" class="w-full">
+              <option value="MALE">MALE</option>
+              <option value="FEMALE">FEMALE</option>
+            </select>
+          </div>
+        </li>
+        <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+          <div class="text-500 w-full md:w-2 font-medium">Location</div>
+          <div class="text-900 w-full md:w-10">
+            <span *ngIf="!isEditModeForParentData">{{parent?.location}}</span>
+            <input *ngIf="isEditModeForParentData" [(ngModel)]="parent.location" class="w-full"/>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+
+  <!-- ACCOUNT DATA -->
   <div class="px-6 py-5">
     <div class="surface-card p-4 shadow-2 border-round">
-        <div class="flex align-items-center justify-content-between mb-3">
-            <div class="font-medium text-3xl text-900">Account Data</div>
-            <p-button label="Edit" onclick="redirectToEditAccountDataPage()" />
-        </div>
-        <div class="text-500 mb-5">These are your account information.</div>
-        <ul class="list-none p-0 m-0 border-top-1 border-300">
-            <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
-                <div class="text-500 w-full md:w-2 font-medium">Email</div>
-                <div class="text-900 w-full md:w-10">{{userInfo.email}}</div>
-            </li>
-            <li class="flex align-items-center py-3 px-2 flex-wrap">
-                <div class="text-500 w-full md:w-2 font-medium">Password</div>
-                <div class="text-900 w-full md:w-10 line-height-3">**************</div>
-            </li>
-        </ul>
+      <div class="flex align-items-center justify-content-between mb-3">
+        <div class="font-medium text-3xl text-900">Account Data</div>
+        <p-button *ngIf="!isEditModeForAccountData" label="Edit" (click)="isEditModeForAccountData = true" />
+        <p-button *ngIf="isEditModeForAccountData" label="Save" (click)="updateAccountData()" />
+      </div>
+      <div class="text-500 mb-5">These are your account information.</div>
+      <ul class="list-none p-0 m-0 border-top-1 border-300">
+        <li class="flex align-items-center py-3 px-2 flex-wrap surface-ground">
+          <div class="text-500 w-full md:w-2 font-medium">Email</div>
+          <div class="text-900 w-full md:w-10">
+            <span *ngIf="!isEditModeForAccountData">{{userInfo.email}}</span>
+            <input *ngIf="isEditModeForAccountData" [(ngModel)]="userInfo.email" type="email" class="w-full"/>
+          </div>
+        </li>
+        <li class="flex align-items-center py-3 px-2 flex-wrap">
+          <div class="text-500 w-full md:w-2 font-medium">Password</div>
+          <div class="text-900 w-full md:w-10 line-height-3">
+            <span *ngIf="!isEditModeForAccountData">************</span>
+            <input *ngIf="isEditModeForAccountData" [(ngModel)]="userInfo.password" type="password" class="w-full"/>
+          </div>
+        </li>
+      </ul>
     </div>
-</div>
+  </div>
 </div>

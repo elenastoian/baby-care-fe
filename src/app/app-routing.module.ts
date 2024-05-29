@@ -44,6 +44,7 @@ import { ResetPasswordComponent } from './pages/reset-password.component';
 import { HomeComponent } from './pages/home.component';
 import { AuthGuardService } from './service/auth-guard-service/auth-guard.service';
 import { ParentComponent } from './pages/app.parent.component';
+import { AppBabiesComponent } from './pages/app.babies.component';
 
 @NgModule({
     imports: [
@@ -53,7 +54,7 @@ import { ParentComponent } from './pages/app.parent.component';
                 children: [
                      /* Protected */
                      { path: 'profile', component: ParentComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
-                    
+                     { path: 'babies', component: AppBabiesComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
                      /* End Protected */
 
                      /* NOT Protected */

@@ -149,6 +149,7 @@ import { RegistrationConfirmationComponent } from './pages/registration-confirma
 import { EmailConfirmationComponent } from './pages/email-confirmation.component';
 import { HomeComponent } from './pages/home.component';
 import { ParentComponent } from './pages/app.parent.component';
+import { AppBabiesComponent } from './pages/app.babies.component';
 
 @NgModule({
     imports: [
@@ -292,7 +293,8 @@ import { ParentComponent } from './pages/app.parent.component';
         RegistrationConfirmationComponent,
         EmailConfirmationComponent,
         HomeComponent,
-        ParentComponent
+        ParentComponent,
+        AppBabiesComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

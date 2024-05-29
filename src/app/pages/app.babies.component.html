@@ -1,0 +1,11 @@
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+    <div class="text-center font-bold text-900 text-5xl mb-3">Your babies</div>
+    <div class="text-center text-xl line-height-3 text-600 mb-6">Click on the baby that you want to see.</div>
+    <div class="grid">
+        <div class="col-12 md:col-4 text-center mb-5" *ngFor="let baby of resposeArray"
+        (click)="goToAnnouncePage(baby.id)">
+            <img src="assets/layout/images/avatar-baby.png" style="width: 70px;height: 70px" class="mb-3" />
+            <div class="text-xl text-900 font-medium mb-3">{{ baby.name }}</div>
+        </div>
+    </div>
+</div>

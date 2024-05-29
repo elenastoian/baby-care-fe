@@ -4,11 +4,14 @@ import { ParentModel } from '../model/parent';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../service/auth-service/auth.service';
 import { Subscription } from 'rxjs';
-import { ParentService } from '../service/profile-service/parent.service';
+import { ParentService } from '../service/parent-service/parent.service';
 import { GetParentResponse } from '../dto/get-parent-response';
+import { UpdateParentRequest } from '../dto/update-parent-request';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-parent',
+  providers: [MessageService, ConfirmationService],
   templateUrl: './app.parent.component.html'
 })
 export class ParentComponent implements OnInit, OnDestroy{
@@ -22,6 +25,11 @@ export class ParentComponent implements OnInit, OnDestroy{
     parent: ParentModel;
     /* END PARENT VARIABLES */
 
+    /* EDIT MODE FLAG */
+    isEditModeForParentData: boolean = false;
+    isEditModeForAccountData: boolean = false;
+    /* END EDIT MODE FLAG */
+
     /* SUBSCRIPTION */
     private parentServiceSubscription: Subscription;
     private activateRouteSubscription: Subscription;
@@ -33,11 +41,10 @@ export class ParentComponent implements OnInit, OnDestroy{
         private parentService: ParentService,
         private router: Router,
         private authService: AuthService,
+        private messageService: MessageService,
         private cdRef: ChangeDetectorRef) { }
 
         ngOnInit(): void {
-            console.log("this.userInfo")
-            console.log(this.userInfo)
             this.activateRouteSubscription = this.activateRouteSubscription = this.activateRoute.params.subscribe();
     
             this.userInfoStatusSubscription = this.authService.userInfoStatus.subscribe((userInfo: UserInfo) => {
@@ -77,11 +84,29 @@ export class ParentComponent implements OnInit, OnDestroy{
             }
         }
 
-        redirectToEditAccountDataPage() {
-           //TO BE IMPLEMENTED
+        updateParent() {
+            const updateParentRequest = new UpdateParentRequest(
+                this.parent.name,
+                this.parent.dateOfBirth,
+                this.parent.sex,
+                this.parent.location
+            );
+        
+            this.parentService.updateParent(updateParentRequest).subscribe(
+                response => {
+                    console.log(response);
+                    this.isEditModeForParentData = false;
+                    this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Parent data saved.', life: 3000 });
+                    this.cdRef.detectChanges();
+                },
+                error => {
+                    console.error("Error updating parent data", error);
+                    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to save parent data.', life: 3000 });
+                }
+            );
         }
 
-        redirectToEditParentDataPage() {
-            //TO BE IMPLEMENTED
-         }
+        updateAccountData() {
+            //TO BE IMPLEMENTED LATER
+        }
 }
