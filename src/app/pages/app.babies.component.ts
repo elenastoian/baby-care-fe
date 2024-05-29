@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { BabyModel } from '../model/baby';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { UserInfo } from '../model/user-info';
 import { AuthService } from '../service/auth-service/auth.service';
@@ -9,7 +8,7 @@ import { GetAllBabiesResponse } from '../dto/get-all-babies-response';
 import { BabyService } from '../service/baby-service/baby.service';
 
 @Component({
-  selector: 'app-app.baby',
+  selector: 'app-app.babies',
   templateUrl: './app.babies.component.html'
 })
 export class AppBabiesComponent implements OnInit, OnDestroy{
@@ -72,7 +71,7 @@ export class AppBabiesComponent implements OnInit, OnDestroy{
             }
         }
 
-        goToAnnouncePage(id: number) {
-            this.router.navigate(['baby/get', id]);
+        goToBabyPage(id: number) {
+            this.router.navigate(['baby', id]);
         }
 }
