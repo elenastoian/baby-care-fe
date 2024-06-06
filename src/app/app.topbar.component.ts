@@ -17,8 +17,6 @@ export class AppTopBarComponent implements OnInit, OnDestroy {
   userInfo: UserInfo = new UserInfo(0, '', false);
   /* END USER INFO VARIABLES */
 
-  selectedCountry: any = { "name": "English", "code": "GB" };
-
   flagClick: boolean = false;
 
   countries: any[];
@@ -46,12 +44,6 @@ export class AppTopBarComponent implements OnInit, OnDestroy {
       this.authService.changeUserInfoStatus(this.userInfo);
     }
 
-    this.countries = [
-      { "name": "English", "code": "GB" },
-      { "name": "Romana", "code": "RO" },
-
-    ];
-
   }
 
   ngOnDestroy(): void {
@@ -70,12 +62,6 @@ export class AppTopBarComponent implements OnInit, OnDestroy {
     this.userInfo.id = 0;
     this.authService.changeUserInfoStatus(this.userInfo);
     this.authService.logout();
-  }
-
-  deselect() {
-    if (!this.flagClick) {
-      this.selectedCountry = null;
-    }
   }
 
 }

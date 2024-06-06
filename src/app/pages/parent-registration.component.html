@@ -1,0 +1,44 @@
+<div class="custom-background custom-error">
+    <div style="  padding-left: 20rem; padding-right: 20rem;">
+        <div class="p-fluid flex flex-column lg:flex-row pt-8" style="  padding-left: 20rem; padding-right: 20rem;">
+            <div class="surface-card p-5 shadow-2 border-round flex-auto">
+                <div class="text-900 font-semibold text-lg mt-3">Set up your informations</div>
+                <p-divider></p-divider>
+                <div class="flex gap-5 flex-column-reverse md:flex-row">
+                    <div class="flex-auto p-fluid">
+                            <div class="mb-4">
+                              <label for="name" class="block font-medium text-900 mb-2">Name</label>
+                              <input id="name" type="text" pInputText [(ngModel)]="parentRegistrationForm.name" name="name"> 
+                            </div>
+                        <div class="mb-4">
+                            <div class="flex-auto">
+                                <label for="icondisplay" class="font-bold block mb-2">Date of Birth </label>
+                                <p-calendar 
+                                    [(ngModel)]="date1" 
+                                    [iconDisplay]="'input'" 
+                                    [showIcon]="true" 
+                                    inputId="icondisplay" />
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="name" class="block font-medium text-900 mb-2">Sex</label>
+                            <p-dropdown 
+                            [options]="selectSexArray" 
+                            [(ngModel)]="selectSex" 
+                            optionLabel="sex" 
+                            placeholder="Sex" />
+                          </div>
+                        <div class="mb-4">
+                            <label for="location" class="block font-medium text-900 mb-2">Location</label>
+                            <input id="location" type="text" pInputText [(ngModel)]="parentRegistrationForm.location" name="location">
+                        </div>
+                        <div>
+                            <button pButton pRipple label="Save Profile" class="w-auto"
+                            (click)="saveParent();"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

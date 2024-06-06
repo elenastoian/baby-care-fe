@@ -49,6 +49,7 @@ export class AuthService {
     this.userInfo.isAutheticated = false;
     this.changeUserInfoStatus(this.userInfo);
     this.router.navigate([`/`]);
+    window.location.reload(); // Refresh the page
     return this.http.post(this.apiServerUrl + '/auth/signout', {}, httpOptions);
   }
 

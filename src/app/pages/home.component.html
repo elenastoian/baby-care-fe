@@ -16,13 +16,17 @@
             <div class="flex align-items-center justify-content-center font-bold text-gray-900 m-3">
             </div>
             <div class="flex align-items-center justify-content-center font-bold text-gray-900 m-3">
-                <div class="text-700 text-center">
-                    <button pButton pRipple label="See your babies"
-                        class="px-5 py-3 p-button-raised white-space-nowrap p-button-warning" style="min-width: 14rem;"
-                        (click)="goToPage('/babies')"></button>
-                </div>
+              <div class="text-700 text-center">
+                <button *ngIf="isUserLoggedIn" pButton pRipple label="See your babies"
+                  class="px-5 py-3 p-button-raised white-space-nowrap p-button-warning"
+                  style="min-width: 14rem;" (click)="goToPage('/babies')"></button>
+                <button *ngIf="!isUserLoggedIn" pButton pRipple label="Log in"
+                  class="px-5 py-3 p-button-raised white-space-nowrap p-button-warning"
+                  style="min-width: 14rem;" (click)="goToPage('/login')"></button>
+              </div>
             </div>
-        </div>
+          </div>
+          
     </div>
 </div>
 

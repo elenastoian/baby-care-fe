@@ -45,28 +45,42 @@ export class ParentComponent implements OnInit, OnDestroy{
         private cdRef: ChangeDetectorRef) { }
 
         ngOnInit(): void {
-            this.activateRouteSubscription = this.activateRouteSubscription = this.activateRoute.params.subscribe();
-    
-            this.userInfoStatusSubscription = this.authService.userInfoStatus.subscribe((userInfo: UserInfo) => {
-                this.userInfo = userInfo;
-                console.log("UserInfo updated:", this.userInfo);
-                this.cdRef.detectChanges();  // ensure changes are detected
-              });
-
-            this.parentServiceSubscription = this.parentService.findParentByUser().subscribe(
-                (response: GetParentResponse) => {
-                    this.parent = new ParentModel(
-                        response.id,
-                        response.name,
-                        response.dateOfBirth,
-                        response.age,
-                        response.sex,
-                        response.location,
-                        this.userInfo.id,
-                        null
-                    );
-                }
-            );
+          this.activateRouteSubscription = this.activateRoute.params.subscribe();
+      
+          this.userInfoStatusSubscription = this.authService.userInfoStatus.subscribe((userInfo: UserInfo) => {
+            this.userInfo = userInfo;
+            console.log("UserInfo updated:", this.userInfo);
+            this.cdRef.detectChanges();  // ensure changes are detected
+          });
+      
+          this.parentServiceSubscription = this.parentService.findParentByUser().subscribe(
+            (response: GetParentResponse) => {
+              console.log("Getting Parent Response: ");
+             console.log(response);
+      
+              if (response.id == null) {
+                this.router.navigate(['parent/register']);
+              } else {
+                this.parent = new ParentModel(
+                  response.id,
+                  response.name,
+                  response.dateOfBirth,
+                  response.age,
+                  response.sex,
+                  response.location,
+                  this.userInfo.id,
+                  null
+                );
+              }
+            },
+            (error) => {
+              if (error.status === 404) {
+                this.router.navigate(['/parent/register']);
+              } else {
+                console.error("An unexpected error occurred:", error);
+              }
+            }
+          );
         }
 
         ngOnDestroy(): void {

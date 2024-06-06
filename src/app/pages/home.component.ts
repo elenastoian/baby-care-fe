@@ -1,13 +1,25 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth-service/auth.service';
 
 @Component({
     templateUrl: './home.component.html'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
 
-    constructor(private router: Router) {}
+    /* FLAG */
+    isUserLoggedIn: boolean = false;
+    /* FLAG */
+
+    constructor(private router: Router, 
+        private authService: AuthService,
+        private cdRef: ChangeDetectorRef) {}
+
+    ngOnInit(): void {
+        this.isUserLoggedIn = this.authService.isTheUserLogged();
+        this.cdRef.detectChanges(); 
+      }
 
     goToPage(pageName: string): void {
         this.router.navigate([`${pageName}`]);
