@@ -2,6 +2,10 @@
     <div class="font-bold text-900 text-5xl mb-3 text-center">Your babies</div>
     <div class="text-xl line-height-3 text-600 mb-6 text-center">Click on the baby that you want to see.</div>
 
+    <div class="p-toolbar-group-right">
+        <button pButton type="button" label="Add Baby" icon="pi pi-plus" class="mr-2" (click)="goToPage('baby/add')"></button>
+    </div>
+
     <div class="flex justify-content-center flex-column lg:flex-row">
         <div class="shadow-2 p-4 mb-5 lg:mb-0 mr-0 lg:mr-5 surface-card" *ngFor="let baby of resposeArray"
         (click)="goToBabyPage(baby.id)">

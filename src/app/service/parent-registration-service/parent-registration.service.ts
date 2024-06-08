@@ -17,6 +17,9 @@ export class ParentRegistrationService {
   constructor(private storageService: StorageService, private http: HttpClient) { }
 
   saveParent(saveParentRequest: SaveParentRequest): Observable<SaveParentResponse> {
+    console.log("Start to save parent.");
+    console.log("SaveParentRequest:");
+    console.log(saveParentRequest);
 
     let user = this.storageService.getUser();
     

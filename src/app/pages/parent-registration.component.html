@@ -1,44 +1,54 @@
 <div class="custom-background custom-error">
-    <div style="  padding-left: 20rem; padding-right: 20rem;">
-        <div class="p-fluid flex flex-column lg:flex-row pt-8" style="  padding-left: 20rem; padding-right: 20rem;">
-            <div class="surface-card p-5 shadow-2 border-round flex-auto">
-                <div class="text-900 font-semibold text-lg mt-3">Set up your informations</div>
+    <div class="flex justify-content-center flex-wrap pt-8 px-2">
+        <div  class=" border-round w-full lg:w-6">
+            <div class="surface-card p-5 shadow-2 border-round flex-auto" style="min-width: 20rem;">
+                <div class="text-center mb-5">
+                    <div class="text-900 text-3xl font-medium mb-3">Enter your data</div>
+                </div>
                 <p-divider></p-divider>
                 <div class="flex gap-5 flex-column-reverse md:flex-row">
                     <div class="flex-auto p-fluid">
                             <div class="mb-4">
                               <label for="name" class="block font-medium text-900 mb-2">Name</label>
-                              <input id="name" type="text" pInputText [(ngModel)]="parentRegistrationForm.name" name="name"> 
+                              <input *ngIf = "validName" id="name" type="text" pInputText [(ngModel)]="parentRegistrationForm.name" name="name"> 
+                              <input *ngIf = "!validName" id="name" type="text" pInputText [(ngModel)]="parentRegistrationForm.name" name="name" class="ng-invalid ng-dirty"> 
                             </div>
                         <div class="mb-4">
                             <div class="flex-auto">
                                 <label for="icondisplay" class="font-bold block mb-2">Date of Birth </label>
                                 <p-calendar 
+                                    *ngIf = "validDateOfBirth"
                                     [(ngModel)]="date1" 
                                     [iconDisplay]="'input'" 
                                     [showIcon]="true" 
-                                    inputId="icondisplay" />
+                                    inputId="basic"/>
+                                <p-calendar  *ngIf = "!validDateOfBirth"
+                                    [(ngModel)]="date1" 
+                                    [iconDisplay]="'input'" 
+                                    [showIcon]="true" 
+                                    inputId="icondisplay" class="ng-invalid ng-dirty"/>
                             </div>
                         </div>
                         <div class="mb-4">
                             <label for="name" class="block font-medium text-900 mb-2">Sex</label>
-                            <p-dropdown 
-                            [options]="selectSexArray" 
-                            [(ngModel)]="selectSex" 
-                            optionLabel="sex" 
-                            placeholder="Sex" />
+                            <div *ngIf = "validSex" class="font-bold block mb-2">
+                                <p-dropdown [options]="dropdownItems" optionLabel="name" [(ngModel)]="selectedSex" ></p-dropdown>
+                            </div>
+                            <div *ngIf = "!validSex" class="font-bold block mb-2">
+                                <p-dropdown [options]="dropdownItems" optionLabel="name" [(ngModel)]="selectedSex" class="ng-invalid ng-dirty"></p-dropdown>
+                            </div>
                           </div>
                         <div class="mb-4">
                             <label for="location" class="block font-medium text-900 mb-2">Location</label>
-                            <input id="location" type="text" pInputText [(ngModel)]="parentRegistrationForm.location" name="location">
+                            <input *ngIf = "validLocation" id="location" type="text" pInputText [(ngModel)]="parentRegistrationForm.location" name="location" >
+                            <input *ngIf = "!validLocation" id="location" type="text" pInputText [(ngModel)]="parentRegistrationForm.location" name="location" class="ng-invalid ng-dirty">
                         </div>
                         <div>
-                            <button pButton pRipple label="Save Profile" class="w-auto"
-                            (click)="saveParent();"></button>
+                            <p-button label="Save" (click)="saveParent()" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+ </div>

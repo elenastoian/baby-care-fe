@@ -74,4 +74,8 @@ export class AppBabiesComponent implements OnInit, OnDestroy{
         goToBabyPage(id: number) {
             this.router.navigate(['baby', id]);
         }
+
+        goToPage(pageName: string): void {
+            this.router.navigate([`${pageName}`]);
+          }
 }
