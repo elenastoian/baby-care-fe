@@ -2,7 +2,7 @@
 
     height: 100%;
     
-    &.custom-error {
+    &.custom-image {
         background: url("../../assets/layout/images/playful-backround.png");
         background-repeat: no-repeat;
         background-size: cover;
@@ -11,7 +11,4 @@
             border-left: #f56f64 solid 23px;
         }
     }
-
-  
-    
 }

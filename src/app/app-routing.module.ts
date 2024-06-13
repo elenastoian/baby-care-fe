@@ -21,6 +21,8 @@ import { AuthGuardService } from './service/auth-guard-service/auth-guard.servic
 import { ParentComponent } from './pages/app.parent.component';
 import { AppBabiesComponent } from './pages/app.babies.component';
 import { ParentRegistrationComponent } from './pages/parent-registration.component';
+import { AppBabyAddComponent } from './pages/app.baby-add.component';
+import { AppBabyComponent } from './pages/app.baby.component';
 
 
 @NgModule({
@@ -31,8 +33,11 @@ import { ParentRegistrationComponent } from './pages/parent-registration.compone
                 children: [
                      /* Protected */
                      { path: 'profile', component: ParentComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
-                     { path: 'babies', component: AppBabiesComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
                      { path: 'parent/register', component: ParentRegistrationComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
+                     { path: 'babies', component: AppBabiesComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
+                     { path: 'baby/add', component: AppBabyAddComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
+                     { path: 'baby/:id', component: AppBabyComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
+                     
                      /* End Protected */
 
                      /* NOT Protected */
