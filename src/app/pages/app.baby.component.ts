@@ -92,6 +92,7 @@ export class AppBabyComponent implements OnInit, OnDestroy {
     
       updateBaby() {
         const updateBabyRequest = new UpdateBabyRequest(
+          this.babyId,
           this.baby.name,
           this.baby.dateOfBirth,
           this.baby.sex,
@@ -106,7 +107,7 @@ export class AppBabyComponent implements OnInit, OnDestroy {
           (response: GetBabyResponse) => {
               this.isEditMode = false;
               this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Baby data saved.', life: 3000 });
-                    this.cdRef.detectChanges();
+              this.cdRef.detectChanges();
           },
           error => {
               console.error("Error updating baby data", error);

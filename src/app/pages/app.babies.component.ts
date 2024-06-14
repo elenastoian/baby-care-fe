@@ -6,6 +6,7 @@ import { UserInfo } from '../model/user-info';
 import { AuthService } from '../service/auth-service/auth.service';
 import { GetAllBabiesResponse } from '../dto/get-all-babies-response';
 import { BabyService } from '../service/baby-service/baby.service';
+import { SexEnum } from '../model/sex-senum';
 
 @Component({
   selector: 'app-app.babies',

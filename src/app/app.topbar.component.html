@@ -24,7 +24,7 @@
             <li class="user-profile" [ngClass]="{'active-topmenuitem fadeInDown': appMain.topbarUserMenuActive}">
                 
                 <a href="#" (click)="appMain.onTopbarUserMenuButtonClick($event)" *ngIf="!app.inlineUser">
-                    <img src="..\assets\layout\images\avatar.png" alt="Profile" />
+                    <img src="..\assets\layout\images\user.png" alt="Profile" />
                 </a>
 
                 <ul class="fadeInDown">
@@ -44,7 +44,21 @@
                     </li>
 
                     <li>
-                        <a (click)="goToPage('/appointments')" class="cursor-pointer">
+                        <a (click)="goToPage('/track')" class="cursor-pointer">
+                            <i class="pi pi-fw pi-user"></i>
+                            <span> Baby Tracker</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a (click)="goToPage('/About')" class="cursor-pointer">
+                            <i class="pi pi-fw pi-user"></i>
+                            <span> About</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a (click)="goToPage('/contact')" class="cursor-pointer">
                             <i class="pi pi-fw pi-user"></i>
                             <span> Contact</span>
                         </a>

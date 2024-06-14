@@ -153,6 +153,7 @@ import { AppBabiesComponent } from './pages/app.babies.component';
 import { ParentRegistrationComponent } from './pages/parent-registration.component';
 import { AppBabyAddComponent } from './pages/app.baby-add.component';
 import { AppBabyComponent } from './pages/app.baby.component';
+import { AppContactComponent } from './pages/app.contact.component';
 
 
 @NgModule({
@@ -301,7 +302,8 @@ import { AppBabyComponent } from './pages/app.baby.component';
         AppBabiesComponent,
         ParentRegistrationComponent,
         AppBabyAddComponent,
-        AppBabyComponent
+        AppBabyComponent,
+        AppContactComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

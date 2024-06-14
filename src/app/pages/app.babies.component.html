@@ -9,7 +9,12 @@
     <div class="flex justify-content-center flex-column lg:flex-row">
         <div class="shadow-2 p-4 mb-5 lg:mb-0 mr-0 lg:mr-5 surface-card" *ngFor="let baby of resposeArray"
         (click)="goToBabyPage(baby.id)">
-            <img src="assets/layout/images/avatar-baby.png" style="width: 120px;height: 150px" class="mb-3 w-full" />
+        <div *ngIf="baby.sex === 'MALE'">
+            <img src="assets/layout/images/user_male.png" style="width: 120px;height: 150px" class="mb-3 w-full" />
+        </div>
+        <div *ngIf="baby.sex === 'FEMALE'">
+            <img src="assets/layout/images/user_female.png" style="width: 120px;height: 150px" class="mb-3 w-full" />
+        </div>
             <div class="flex justify-content-center align-items-center flex-column">
                 <div class="text-center">
                     <div class="text-xl text-900 font-medium mb-2">{{ baby.name }}</div>
