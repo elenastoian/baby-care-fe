@@ -1,0 +1,79 @@
+<div class="custom-background custom-image">
+    <div class="flex justify-content-center flex-wrap pt-8 px-2">
+        <div  class=" border-round w-full lg:w-6">
+            <div class="surface-card p-5 shadow-2 border-round flex-auto" style="min-width: 20rem;">
+                <div class="text-center mb-5">
+                    <div class="text-900 text-3xl font-medium mb-3">Enter your baby's data</div>
+                </div>
+                <p-divider></p-divider>
+                <div class="flex gap-5 flex-column-reverse md:flex-row">
+                    <div class="flex-auto p-fluid">
+                            <div class="mb-4">
+                              <label for="name" class="block font-medium text-900 mb-2">Name</label>
+                              <input *ngIf = "validName" id="name" type="text" pInputText [(ngModel)]="babyAddForm.name" name="name"> 
+                              <input *ngIf = "!validName" id="name" type="text" pInputText [(ngModel)]="babyAddForm.name" name="name" class="ng-invalid ng-dirty"> 
+                            </div>
+                        <div class="mb-4">
+                            <div class="flex-auto">
+                                <label for="icondisplay" class="font-bold block mb-2">Date of Birth </label>
+                                <p-calendar 
+                                    *ngIf = "validDateOfBirth"
+                                    [(ngModel)]="date1" 
+                                    [iconDisplay]="'input'" 
+                                    [showIcon]="true" 
+                                    inputId="basic"/>
+                                <p-calendar  *ngIf = "!validDateOfBirth"
+                                    [(ngModel)]="date1" 
+                                    [iconDisplay]="'input'" 
+                                    [showIcon]="true" 
+                                    inputId="icondisplay" class="ng-invalid ng-dirty"/>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="name" class="block font-medium text-900 mb-2">Sex</label>
+                            <div *ngIf = "validSex" class="font-bold block mb-2">
+                                <p-dropdown [options]="dropdownItemsSex" optionLabel="name" [(ngModel)]="selectedSex" ></p-dropdown>
+                            </div>
+                            <div *ngIf = "!validSex" class="font-bold block mb-2">
+                                <p-dropdown [options]="dropdownItemsSex" optionLabel="name" [(ngModel)]="selectedSex" class="ng-invalid ng-dirty"></p-dropdown>
+                            </div>
+                          </div>
+                        <div class="mb-4">
+                            <label for="weight" class="block font-medium text-900 mb-2">Weight</label>
+                            <input id="weight" type="text" pInputText [(ngModel)]="babyAddForm.weight" name="weight" >
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="height" class="block font-medium text-900 mb-2">Height</label>
+                            <input id="height" type="text" pInputText [(ngModel)]="babyAddForm.height" name="height" >
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="name" class="block font-medium text-900 mb-2">Type of Birth</label>
+                            <div *ngIf = "validTypeOfBirth" class="font-bold block mb-2">
+                                <p-dropdown [options]="dropdownItemsTypeOfBirth" optionLabel="name" [(ngModel)]="selectedTypeOfBirth" ></p-dropdown>
+                            </div>
+                            <div *ngIf = "!validTypeOfBirth" class="font-bold block mb-2">
+                                <p-dropdown [options]="dropdownItemsTypeOfBirth" optionLabel="name" [(ngModel)]="selectedTypeOfBirth" class="ng-invalid ng-dirty"></p-dropdown>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="birthWeight" class="block font-medium text-900 mb-2">Birth weight</label>
+                            <input id="birthWeight" type="text" pInputText [(ngModel)]="babyAddForm.birthWeight" name="birthWeight" >
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="comments" class="block font-medium text-900 mb-2">Comments</label>
+                            <input id="comments" type="text" pInputText [(ngModel)]="babyAddForm.comments" name="comments" >
+                        </div>
+
+                        <div>
+                            <p-button label="Save" (click)="saveParent()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

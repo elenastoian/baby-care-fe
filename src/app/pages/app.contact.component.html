@@ -1,0 +1,80 @@
+
+<div class="surface-card p-4 shadow-2 border-round">
+    <div class="font-medium text-3xl text-900 mb-3">Elena Stoian - Software Developer</div>
+    <div class="text-500 mb-5">This is my complete resume. If you find my profile suitable for your company, I would be delighted to discuss further opportunities.</div>
+    <div class="grid grid-nogutter border-top-1 surface-border pt-2">
+        <!-- <div class="col-12 md:col-6 p-3">
+            <div class="text-500 font-medium mb-2">Name</div>
+            <div class="text-900">Elena Stoian</div>
+        </div> -->
+        <div class="col-12 md:col-6 p-3">
+            <div class="text-500 font-medium mb-2">Email</div>
+            <div class="text-900">elenastoian00&#64;gmail.com</div>
+        </div>
+        
+        <div class="col-12 md:col-6 p-3">
+            <div class="text-500 font-medium mb-2">Location</div>
+            <div class="text-900">Romania (EU citizen)</div>
+        </div>
+
+        <div class="col-12 md:col-6 p-3">
+            <div class="text-500 font-medium mb-2">Phone</div>
+            <div class="text-900">+40 742 870 671</div>
+        </div>
+        <div class="col-12 md:col-6 p-3">
+            <div class="text-500 font-medium mb-2">LinkedIn</div>
+            <div class="text-900">
+                <a href="https://www.linkedin.com/in/elena-stoian-61845b195/">LinkedIn Profile</a>
+            </div>
+        </div>
+        <!-- <div class="col-12 p-3">
+            <div class="text-500 font-medium mb-2">Summary</div>
+            <div class="text-900 line-height-3">Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Eget felis eget nunc lobortis mattis aliquam faucibus purus in.</div>
+        </div> -->
+        <div class="col-12 p-3">
+            <div class="text-500 font-medium mb-3">Skills</div>
+            <div class="flex md:align-items-center md:justify-content-between border-top-1 surface-border p-3 flex-column md:flex-row">
+                <div class="text-900 w-full md:w-10">
+                <p-tag styleClass="mr-2" value="Java" [rounded]="true"></p-tag>
+                <p-tag styleClass="mr-2" severity="success" value="Spring Boot" [rounded]="true"></p-tag>
+                <p-tag styleClass="mr-2" severity="danger" value="SQL" [rounded]="true"></p-tag>
+                <p-tag severity="warning" value="Hibernate/JPA" [rounded]="true"></p-tag>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-12 p-3">
+            <div class="text-500 font-medium mb-3">Professional Experience</div>
+            <!-- <div class="flex md:align-items-center md:justify-content-between border-top-1 surface-border p-3 flex-column md:flex-row">
+                
+                  
+            </div> -->
+
+            <!-- <div class="card flex justify-content-center"> -->
+                <p-accordion [multiple]="true" [activeIndex]="[0]">
+                    <p-accordionTab header="Cognizant-Mobility">
+                        <p>
+                            Lorem ipsum dolor sit amet...
+                        </p>
+                    </p-accordionTab>
+                    <p-accordionTab header="Endava">
+                        <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...
+                        </p>
+                    </p-accordionTab>
+                </p-accordion>
+            <!-- </div> -->
+        </div>
+
+        <div class="col-12 p-3">
+            <div class="text-500 font-medium mb-3">Files</div>
+            <div class="flex md:align-items-center md:justify-content-between border-top-1 surface-border p-3 flex-column md:flex-row">
+                <div class="flex align-items-center">
+                    <span class="block pi pi-file mr-2"></span>
+                    <span class="text-900">{{cvName}}</span>
+                </div>
+                <button pButton pRipple icon="pi pi-download" label="Download" class="p-button-outlined mt-2 md:mt-0" (click)="downloadCV()"></button>
+            </div>
+        </div>
+    </div>
+</div>

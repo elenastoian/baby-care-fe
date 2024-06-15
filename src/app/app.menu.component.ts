@@ -45,7 +45,10 @@ export class AppMenuComponent implements OnInit {
                 label: 'Babies', icon: 'pi pi-users', routerLink: ['/babies'],
             },
             {
-                label: 'Contact', icon: 'pi pi-fw pi-info-circle', routerLink: ['/contact'],
+                label: 'Baby Tracker', icon: 'pi pi-calendar', routerLink: ['/tracker'],
+            },
+            {
+                label: 'About', icon: 'pi pi-id-card', routerLink: ['/contact'],
             },
         ];
     }
