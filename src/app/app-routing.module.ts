@@ -24,6 +24,8 @@ import { ParentRegistrationComponent } from './pages/parent-registration.compone
 import { AppBabyAddComponent } from './pages/app.baby-add.component';
 import { AppBabyComponent } from './pages/app.baby.component';
 import { AppContactComponent } from './pages/app.contact.component';
+import { AppBabiesTrackerComponent } from './pages/app.babies-tracker.component';
+import { AppBabyTrackerComponent } from './pages/app.baby-tracker.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { AppContactComponent } from './pages/app.contact.component';
                      { path: 'babies', component: AppBabiesComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
                      { path: 'baby/add', component: AppBabyAddComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
                      { path: 'baby/:id', component: AppBabyComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
+                     { path: 'track', component: AppBabiesTrackerComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
+                     { path: 'track/:babyId', component: AppBabyTrackerComponent, canActivate: [AuthGuardService], title: 'Baby Care' },
                      
                      /* End Protected */
 

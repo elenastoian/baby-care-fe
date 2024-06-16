@@ -22,9 +22,9 @@ export class AppBabyComponent implements OnInit, OnDestroy {
   babyId: number = 0;
   /* END ROUTE VARIABLES */
 
-  /* PPARENT VARIABLES */
+  /* BABY VARIABLES */
   baby: BabyModel;
-  /* END PARENT VARIABLES */
+  /* END BABY VARIABLES */
 
   /* EDIT MODE FLAG */
   isEditMode: boolean = false;
