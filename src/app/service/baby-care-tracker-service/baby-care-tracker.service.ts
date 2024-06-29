@@ -14,13 +14,13 @@ export class BabyCareTrackerService {
 
   constructor(private storageService: StorageService, private http: HttpClient) { }
 
-  getCareTracker(babyId: number): Observable<BabyCareTrackerResponse> {
+  getCareTracker(babyId: number): Observable<BabyCareTrackerResponse[]> {
     let user = this.storageService.getUser();
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.get<BabyCareTrackerResponse>(`${this.apiServerUrl}/track/${babyId}`, { headers: headers });
+    return this.http.get<BabyCareTrackerResponse[]>(`${this.apiServerUrl}/track/${babyId}`, { headers: headers });
  
   }
 }

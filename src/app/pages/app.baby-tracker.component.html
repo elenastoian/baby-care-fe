@@ -1,43 +1,121 @@
-<div class="grid">
-	<div class="col-12">
-		<div class="card">
-			<h5>Sleep Records</h5>
-			<!-- <p-toggleButton [(ngModel)]="idFrozen" [onIcon]="'pi pi-lock'" offIcon="pi pi-lock-open" [onLabel]="'Unfreeze Id'" offLabel="Freeze Id" [style]="{'width': '12rem'}"></p-toggleButton> -->
+<div class="card">
+  <p-toast></p-toast>
+  <p-toolbar styleClass="mb-4 gap-2">
+    <ng-template pTemplate="left">
+      <!-- BUTTON TO ADD RECORD -->
+      <p-button
+        pRipple
+        severity="success"
+        label="New"
+        icon="pi pi-plus"
+        class="mr-2"
+        (click)="openNew()"
+      ></p-button>
 
-			<p-table [value]="customers3" scrollDirection="both" [scrollable]="true" scrollHeight="400px" styleClass="mt-3" responsiveLayout="scroll">
-				<ng-template pTemplate="header">
-					<tr>
-						<!-- <th style="width:200px" pFrozenColumn>Name</th>
-						<th style="width:200px" alignFrozen="left" pFrozenColumn [frozen]="idFrozen">Id</th> -->
-						<th style="width:200px">Start At</th>
-						<th style="width:200px">Stop At</th>
-						<th style="width:200px">Total Duration</th>
-						<th style="width:200px">Comments</th>
-					</tr>
-				</ng-template>
-				<ng-template pTemplate="body" let-customer  *ngFor="let record of sleepRecordArray">
-					<tr>
-						<!-- <td style="width:200px" pFrozenColumn>{{customer.name}}</td>
-						<td style="width:200px" alignFrozen="left" pFrozenColumn [frozen]="idFrozen">{{customer.id}}</td> -->
-						<!-- <td style="width:200px">
-							<img src="assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + customer.country.code" width="30">
-							<span class="image-text ml-2">{{ }}</span>
-						</td> -->
-						<td style="width:200px">{{record.sleepStart | date:'medium' }}</td>
-						<td style="width:200px">{{record.sleepEnd | date:'medium' }}</td>
-						<!-- <td style="width:200px">
-							<span [class]="'customer-badge status-' + customer.status">{{ }}</span>
-						</td> -->
-						<td style="width:200px">{{ }}</td>
-						<td style="width:200px">{{ }}</td>
-						<!-- <td style="width:200px">
-							<img [alt]="customer.representative.name" src="assets/demo/images/avatar/{{customer.representative.image}}" width="32" style="vertical-align: middle"/>
-							<span class="image-text ml-2">{{ }}</span>
-						</td> -->
-						<!-- <td style="width:200px" pFrozenColumn alignFrozen="right">{{ }}</td> -->
-					</tr>
-				</ng-template>
-			</p-table>
-		</div>
-	</div>
+      <!-- BUTTON TO DELETE RECORD -->
+      <p-button
+        pRipple
+        severity="danger"
+        label="Delete"
+        icon="pi pi-trash"
+        (click)="deleteSelectedTracks()"
+        [disabled]="!selectedBabyCareTrackerArray || !selectedBabyCareTrackerArray.length"
+      ></p-button>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table
+    #dt
+    [value]="babyCareTrackerArray"
+    [rows]="10"
+    [paginator]="true"
+    [tableStyle]="{ 'min-width': '75rem' }"
+    [(selection)]="selectedBabyCareTrackerArray"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 4rem">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th pSortableColumn="date" style="min-width: 15rem">
+          Date of Record <p-sortIcon field="date"></p-sortIcon>
+        </th>
+        <th>Sleep duration</th>
+        <th style="min-width: 10rem">
+          Stool at 
+        </th>
+        <th>Feed at</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-babyCareTracker>
+      <tr>
+        <td>
+          <p-tableCheckbox [value]="babyCareTracker"></p-tableCheckbox>
+        </td>
+        <td>{{ babyCareTracker.date }}</td>
+        <td>
+          <div *ngFor="let record of babyCareTracker.sleepRecords">
+            {{ formatDuration(record.sleepDuration) }}
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let record of babyCareTracker.stoolRecords">
+            {{ record.stoolTime | date:'HH:mm' }}
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let record of babyCareTracker.feedRecords">
+            {{ record.feedTime | date:'HH:mm' }}
+          </div>
+        </td>
+
+		<td>
+			<p-button
+			  pRipple
+			  icon="pi pi-pencil"
+			  class="mr-2"
+			  [rounded]="true"
+			  [outlined]="true"
+			  severity="success"
+			  (click)="editTrack(record)"
+			/>
+		  </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-dialog
+    [(visible)]="trackDialog"
+    [style]="{ width: '450px' }"
+    header="Record Details"
+    [modal]="true"
+    styleClass="p-fluid"
+  >
+    <ng-template pTemplate="content">
+      <!-- Your dialog content here -->
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <p-button
+        pRipple
+        label="Cancel"
+        icon="pi pi-times"
+        [text]="true"
+        (click)="hideDialog()"
+      ></p-button>
+      <p-button
+        pRipple
+        label="Save"
+        icon="pi pi-check"
+        [text]="true"
+        (click)="saveTrack()"
+      ></p-button>
+    </ng-template>
+  </p-dialog>
+
+  <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
 </div>
