@@ -1,121 +1,145 @@
 <div class="card">
-  <p-toast></p-toast>
-  <p-toolbar styleClass="mb-4 gap-2">
-    <ng-template pTemplate="left">
-      <!-- BUTTON TO ADD RECORD -->
-      <p-button
-        pRipple
-        severity="success"
-        label="New"
-        icon="pi pi-plus"
-        class="mr-2"
-        (click)="openNew()"
-      ></p-button>
+  <p-tabView (onChange)="onTabChange($event)">
 
-      <!-- BUTTON TO DELETE RECORD -->
-      <p-button
-        pRipple
-        severity="danger"
-        label="Delete"
-        icon="pi pi-trash"
-        (click)="deleteSelectedTracks()"
-        [disabled]="!selectedBabyCareTrackerArray || !selectedBabyCareTrackerArray.length"
-      ></p-button>
-    </ng-template>
-  </p-toolbar>
+    <!-- SLEEP RECORDS-->
+    <p-tabPanel header="Sleep"> 
+      <div class="card">
+      <p-toast></p-toast>
+    
+      <!-- New and Delete buttons -->
+      <p-toolbar styleClass="mb-4 gap-2">
+        <ng-template pTemplate="left">
+          <p-button pRipple severity="success" label="New" icon="pi pi-plus" class="mr-2" (click)="openNew()"></p-button>
+          <p-button pRipple severity="danger" label="Delete" icon="pi pi-trash" (click)="deleteSelectedTracks()"
+                    [disabled]="!selectedBabyCareTrackerArray || !selectedBabyCareTrackerArray.length"></p-button>
+        </ng-template>
+      </p-toolbar>
+    
+      <!-- Sleep Data Table -->
+      <h3>Sleep Data</h3>
+      <p-table [value]="sleepRecordArray" [rows]="10" [paginator]="true" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Date</th>
+            <th>Sleep from</th>
+            <th>Sleep to</th>
+            <th>Sleep duration</th>
+            <th>Comments</th>
+            <th>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sleepRecord let-i="rowIndex">
+          <tr>
+            <td *ngIf="shouldDisplayDateForSleep(i)">{{ sleepRecord.sleepStart | date: 'dd.MM.yyyy' }}</td>
+            <td *ngIf="!shouldDisplayDateForSleep(i)"></td>
+            <td>{{ sleepRecord.sleepStart | date:'HH:mm' }}</td>
+            <td>{{ sleepRecord.sleepEnd | date:'HH:mm' }}</td>
+            <td>{{ formatDuration(sleepRecord.sleepDuration) }}</td>
+            <td>{{ sleepRecord.comments }}</td>
+            <td>
+              <p-button pRipple icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" severity="success"
+                        (click)="editTrack(sleepRecord)"></p-button>
+            </td>
+          </tr>
+        </ng-template>
+        
+      </p-table>
+    </div>
 
-  <p-table
-    #dt
-    [value]="babyCareTrackerArray"
-    [rows]="10"
-    [paginator]="true"
-    [tableStyle]="{ 'min-width': '75rem' }"
-    [(selection)]="selectedBabyCareTrackerArray"
-    [rowHover]="true"
-    dataKey="id"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [showCurrentPageReport]="true"
-  >
-    <ng-template pTemplate="header">
-      <tr>
-        <th style="width: 4rem">
-          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-        </th>
-        <th pSortableColumn="date" style="min-width: 15rem">
-          Date of Record <p-sortIcon field="date"></p-sortIcon>
-        </th>
-        <th>Sleep duration</th>
-        <th style="min-width: 10rem">
-          Stool at 
-        </th>
-        <th>Feed at</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-babyCareTracker>
-      <tr>
-        <td>
-          <p-tableCheckbox [value]="babyCareTracker"></p-tableCheckbox>
-        </td>
-        <td>{{ babyCareTracker.date }}</td>
-        <td>
-          <div *ngFor="let record of babyCareTracker.sleepRecords">
-            {{ formatDuration(record.sleepDuration) }}
-          </div>
-        </td>
-        <td>
-          <div *ngFor="let record of babyCareTracker.stoolRecords">
-            {{ record.stoolTime | date:'HH:mm' }}
-          </div>
-        </td>
-        <td>
-          <div *ngFor="let record of babyCareTracker.feedRecords">
-            {{ record.feedTime | date:'HH:mm' }}
-          </div>
-        </td>
+    <!-- SCREEN TIME RECORDS -->
+  </p-tabPanel>
+  <p-tabPanel header="Screen time">
+      <ng-template pTemplate="content"> 
+      <div class="card">
+      <p-toast></p-toast>
+     
+      <!-- Toolbar for Actions -->
+      <p-toolbar styleClass="mb-4 gap-2">
+        <ng-template pTemplate="left">
+          <p-button pRipple severity="success" label="New" icon="pi pi-plus" class="mr-2" (click)="openNew()"></p-button>
+          <p-button pRipple severity="danger" label="Delete" icon="pi pi-trash" (click)="deleteSelectedTracks()"
+                    [disabled]="!selectedBabyCareTrackerArray || !selectedBabyCareTrackerArray.length"></p-button>
+        </ng-template>
+      </p-toolbar>
 
-		<td>
-			<p-button
-			  pRipple
-			  icon="pi pi-pencil"
-			  class="mr-2"
-			  [rounded]="true"
-			  [outlined]="true"
-			  severity="success"
-			  (click)="editTrack(record)"
-			/>
-		  </td>
-      </tr>
-    </ng-template>
-  </p-table>
+      <h3>Screen Time</h3>
+      <p-table [value]="screenTimeRecordArray" [rows]="10" [paginator]="true" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Date</th>
+            <th>Start at</th>
+            <th>End at</th>
+            <th>Duration</th>
+            <th>Comments</th>
+            <th>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-screenTimeRecord let-i="rowIndex">
+          <tr>
+            <td *ngIf="shouldDisplayDateForScreenTime(i)">{{ screenTimeRecord.screenTimeStart | date: 'dd.MM.yyyy' }}</td>
+            <td *ngIf="!shouldDisplayDateForScreenTime(i)"></td>
+            <td>{{ screenTimeRecord.screenTimeStart | date:'HH:mm' }}</td>
+            <td>{{ screenTimeRecord.screenTimeEnd | date:'HH:mm' }}</td>
+            <td>{{ formatDuration(screenTimeRecord.screenTimeDuration) }}</td>
+            <td>{{ screenTimeRecord.comments }}</td>
+            <td>
+              <p-button pRipple icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" severity="success"
+                        (click)="editTrack(screenTimeRecord)"></p-button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      </div>
+      </ng-template>
+  </p-tabPanel>
 
-  <p-dialog
-    [(visible)]="trackDialog"
-    [style]="{ width: '450px' }"
-    header="Record Details"
-    [modal]="true"
-    styleClass="p-fluid"
-  >
-    <ng-template pTemplate="content">
-      <!-- Your dialog content here -->
-    </ng-template>
+  <!-- FEED RECORDS-->
+  <p-tabPanel header="Feed">
+      <ng-template pTemplate="content"> 
+      
+      <div class="card">
+      <p-toast></p-toast>
+     
+      <!-- Toolbar for Actions -->
+      <p-toolbar styleClass="mb-4 gap-2">
+        <ng-template pTemplate="left">
+          <p-button pRipple severity="success" label="New" icon="pi pi-plus" class="mr-2" (click)="openNew()"></p-button>
+          <p-button pRipple severity="danger" label="Delete" icon="pi pi-trash" (click)="deleteSelectedTracks()"
+                    [disabled]="!selectedBabyCareTrackerArray || !selectedBabyCareTrackerArray.length"></p-button>
+        </ng-template>
+      </p-toolbar>
 
-    <ng-template pTemplate="footer">
-      <p-button
-        pRipple
-        label="Cancel"
-        icon="pi pi-times"
-        [text]="true"
-        (click)="hideDialog()"
-      ></p-button>
-      <p-button
-        pRipple
-        label="Save"
-        icon="pi pi-check"
-        [text]="true"
-        (click)="saveTrack()"
-      ></p-button>
-    </ng-template>
-  </p-dialog>
-
-  <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
+      <h3>Feed Data</h3>
+      <p-table [value]="feedRecordArray" [rows]="10" [paginator]="true" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Date</th>
+            <th>Feed at</th>
+            <th>Type of Food</th>
+            <th>Comments</th>
+            <th>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-feedRecord let-i="rowIndex">
+          <tr>
+            <td *ngIf="shouldDisplayDateForFeed(i)">{{ feedRecord.feedTime | date: 'dd.MM.yyyy' }}</td>
+            <td *ngIf="!shouldDisplayDateForFeed(i)"></td>
+            <td>{{ feedRecord.feedTime | date:'HH:mm' }}</td>
+            <td>{{ feedRecord.typeOfFood }}</td>
+            <td>{{ feedRecord.comments }}</td>
+            <td>
+              <p-button pRipple icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" severity="success"
+                        (click)="editTrack(feedRecord)"></p-button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+      
+      </ng-template>
+  </p-tabPanel>
+  </p-tabView>
 </div>

@@ -1,15 +1,13 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MessageService, ConfirmationService } from 'primeng/api';
-import { BabyCareTrackerService } from '../service/baby-care-tracker-service/baby-care-tracker.service';
+import { BabyTrackerService } from '../service/baby-tracker-service/baby-tracker.service';
 import { UserInfo } from '../model/user-info';
-import { Subscription } from 'rxjs';
+import { isEmpty, Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../service/auth-service/auth.service';
-import { BabyCareTrackerResponse } from '../dto/baby-care-tracker-reponse';
-import { StoolRecordResponse } from '../dto/stool-record-response';
 import { SleepRecordResponse } from '../dto/sleep-record-response';
 import { FeedRecordResponse } from '../dto/feed-record-response';
-import { BabyCareTracker } from '../model/baby-tracker';
+import { ScreenTimeRecordResponse } from '../dto/screen-time-record-response';
 
 @Component({
   selector: 'app-app.baby-tracker',
@@ -26,12 +24,6 @@ import { BabyCareTracker } from '../model/baby-tracker';
 export class AppBabyTrackerComponent implements OnInit, OnDestroy {
     trackDialog: boolean = false;
 
-    babyCareTrackerArray: BabyCareTrackerResponse[] = [];
-
-    babyCareTracker: BabyCareTracker = new BabyCareTracker(0, null, null, null, null, null);
-
-    selectedBabyCareTrackerArray!: BabyCareTracker[] | null;
-
     submitted: boolean = false;
 
   // ...................... //
@@ -43,13 +35,13 @@ export class AppBabyTrackerComponent implements OnInit, OnDestroy {
   /* END ROUTE VARIABLES */
 
   /* SLEEP RECORD VARIABLES */
-  sleepRecordArray: SleepRecordResponse[];
-  sleepRecord: SleepRecordResponse;
+  sleepRecordArray: SleepRecordResponse[] = [];
+  sleepRecord: SleepRecordResponse = new SleepRecordResponse(0, null, null, "");
   /* END SLEEP RECORD VARIABLES */
 
   /* STOOL RECORD VARIABLES */
-  stoolRecordArray: StoolRecordResponse[];
-  stoolRecord: StoolRecordResponse;
+  screenTimeRecordArray: ScreenTimeRecordResponse[];
+  screenTimeRecord: ScreenTimeRecordResponse;
   /* END STOOL RECORD VARIABLES */
 
   /* SLEEP RECORD VARIABLES */
@@ -58,14 +50,16 @@ export class AppBabyTrackerComponent implements OnInit, OnDestroy {
   /* END SLEEP RECORD VARIABLES */
 
   /* SUBSCRIPTION */
-  private babyCareTrackerSubscription: Subscription;
+  private sleepRecordSubscription: Subscription;
+  private screneTimeRecordSubscription: Subscription
+  private feedRecordSubscription: Subscription
   private activateRouteSubscription: Subscription;
   private userInfoStatusSubscription: Subscription;
   /* END SUBSCRIPTION */
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private babyCareTrackerService: BabyCareTrackerService,
+    private babyCareTrackerService: BabyTrackerService,
     private messageService: MessageService, 
     private router: Router,
     private authService: AuthService,
@@ -73,9 +67,10 @@ export class AppBabyTrackerComponent implements OnInit, OnDestroy {
     private cdRef: ChangeDetectorRef) {}
 
     ngOnInit() {
-      this.activateRouteSubscription = this.activateRouteSubscription = this.activateRoute.params.subscribe(params => {
+      this.activateRouteSubscription = this.activateRoute.params.subscribe(params => {
         this.babyId = params.babyId;
-    });
+      });
+      
   
       this.userInfoStatusSubscription = this.authService.userInfoStatus.subscribe((userInfo: UserInfo) => {
         this.userInfo = userInfo;
@@ -83,37 +78,86 @@ export class AppBabyTrackerComponent implements OnInit, OnDestroy {
         this.cdRef.detectChanges();  // ensure changes are detected
       });
 
-      this.babyCareTrackerSubscription = this.babyCareTrackerService.getCareTracker(this.babyId).subscribe(
-        (response: BabyCareTrackerResponse[]) => {
-
-          console.log("Baby tracker response:", response);
-          // this.babyCareTracker.id = response.id;
-          // this.babyCareTracker.date = response.date;
-          // this.sleepRecordArray = response.sleepRecords;
-          // this.stoolRecordArray = response.stoolRecords;
-          // this.feedRecordArray = response.feedRecords;
-          this.babyCareTrackerArray = response;
-          }
-      );
+      this.getAllSleepRecords();
+      this.cdRef.detectChanges();
   }
 
   ngOnDestroy(): void {
 
-    if (this.babyCareTrackerSubscription) {
-        this.babyCareTrackerSubscription.unsubscribe();
+    if (this.sleepRecordSubscription) {
+        this.sleepRecordSubscription.unsubscribe();
     }
-
+    if (this.screneTimeRecordSubscription) {
+      this.screneTimeRecordSubscription.unsubscribe();
+    }
+   if (this.feedRecordSubscription) {
+    this.feedRecordSubscription.unsubscribe();
+    }
     if (this.activateRouteSubscription) {
         this.activateRouteSubscription.unsubscribe();
     }
-
     if (this.userInfoStatusSubscription) {
         this.userInfoStatusSubscription.unsubscribe();
     }
   }
 
+  onTabChange(event: any) {
+    console.log("Tab changed: ", event);
+
+    if(event.index === 1) {
+      console.log("index of event 1. Call getallScreenTimeRecords.");
+
+      this.getAllScreenTimeRecords();
+    }
+
+    if(event.index === 2) {
+      console.log("index of event 2. Call getAllFeedRecords.");
+
+      this.getAllFeedRecords();
+    }
+
+  }
+
+  getAllSleepRecords() {
+    console.log("INSIDE GET ALL SLEEP RECORDS.");
+
+    this.sleepRecordSubscription = this.babyCareTrackerService.getAllSleepRecords(this.babyId).subscribe(
+      (response: SleepRecordResponse[]) => {
+
+        console.log("SleepRecord response:", response);
+        this.sleepRecordArray = response;
+        this.cdRef.detectChanges();
+        }
+    );
+}
+
+  getAllScreenTimeRecords() {
+  console.log("INSIDE GET ALL SCREEN TIME RECORDS.");
+
+  this.screneTimeRecordSubscription = this.babyCareTrackerService.getAllScreenTimeRecords(this.babyId).subscribe(
+    (response: ScreenTimeRecordResponse[]) => {
+
+      console.log("ScreenTimeRecord response:", response);
+      this.screenTimeRecordArray = response;
+      this.cdRef.detectChanges();
+      }
+  );
+}
+
+  getAllFeedRecords() {
+  console.log("INSIDE GET ALL FEED RECORDS.");
+
+  this.feedRecordSubscription = this.babyCareTrackerService.getAllFeedRecords(this.babyId).subscribe(
+    (response: FeedRecordResponse[]) => {
+
+      console.log("FeedRecordResponse response:", response);
+      this.feedRecordArray = response;
+      this.cdRef.detectChanges();
+      }
+  );
+}
+
 openNew() {
-  this.babyCareTracker = new BabyCareTracker(0, null, null, null, null, null);
   this.submitted = false;
   this.trackDialog = true;
   }
@@ -131,21 +175,9 @@ openNew() {
     // });
 }
 
-editTrack(track: BabyCareTrackerResponse) { //change it with request obj
+editTrack(track: any) { //change it with request obj
   // this.babyCareTracker = { ...track };
   this.trackDialog = true;
-}
-deleteTrack(product: BabyCareTrackerResponse) {
-  // this.confirmationService.confirm({
-  //     message: 'Are you sure you want to delete ' + product.name + '?',
-  //     header: 'Confirm',
-  //     icon: 'pi pi-exclamation-triangle',
-  //     accept: () => {
-  //         this.products = this.products.filter((val) => val.id !== product.id);
-  //         this.product = {};
-  //         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Deleted', life: 3000 });
-  //     }
-  // });
 }
 
 hideDialog() {
@@ -156,22 +188,43 @@ hideDialog() {
 saveTrack() {
   this.submitted = true;
 
-  // if (this.babyCareTracker.name?.trim()) {
-  //     if (this.product.id) {
-  //         this.products[this.findIndexById(this.product.id)] = this.product;
-  //         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Updated', life: 3000 });
-  //     } else {
-  //         this.product.id = this.createId();
-  //         this.product.image = 'product-placeholder.svg';
-  //         this.products.push(this.product);
-  //         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Created', life: 3000 });
-  //     }
-
-  //     this.babyCareTrackerArray = [...this.babyCareTrackerArray];
-  //     this.productDialog = false;
-  //     this.babyCareTracker = {};
-  // }
 }
+
+shouldDisplayDateForSleep(index: number): boolean {
+  if (index === 0) {
+    return true; // Always display the date for the first record
+  }
+
+  const current = new Date(this.sleepRecordArray[index].sleepStart).toDateString();
+  const previous = new Date(this.sleepRecordArray[index - 1].sleepStart).toDateString();
+
+  return current !== previous;
+}
+
+shouldDisplayDateForScreenTime(index: number): boolean {
+  if (index === 0) {
+    return true; // Always display the date for the first record
+  }
+
+  const current = new Date(this.screenTimeRecordArray[index].screenTimeStart).toDateString();
+  const previous = new Date(this.screenTimeRecordArray[index - 1].screenTimeStart).toDateString();
+
+  return current !== previous;
+}
+
+shouldDisplayDateForFeed(index: number): boolean {
+  if (index === 0) {
+    return true; // Always display the date for the first record
+  }
+
+  const current = new Date(this.feedRecordArray[index].feedTime).toDateString();
+  const previous = new Date(this.feedRecordArray[index - 1].feedTime).toDateString();
+
+  return current !== previous;
+}
+
+
+
 
   formatDuration(duration: string): string {
   const regex = /PT(\d+H)?(\d+M)?/;

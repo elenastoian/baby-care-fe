@@ -1,5 +1,6 @@
 import { ParentModel } from "./parent";
 import { SexEnum } from "./sex-senum";
+import { SleepRecord } from "./sleep-record";
 import { TypeOfBirthEnum } from "./type-of-birth-enum";
 
 export class BabyModel {
@@ -14,6 +15,7 @@ export class BabyModel {
     birthWeight: number;
     comments: string;
     parent: ParentModel;
+    sleepRecord: SleepRecord[];
 
     constructor(id:number, name:string, dateOfBirth: Date, age: string, sex: SexEnum, weight: number, height: number, typeOfBirth: TypeOfBirthEnum, birthWeight: number, comments: string, parent: ParentModel) {
         this.id = id;
