@@ -2,7 +2,6 @@ import { SexEnum } from "../model/sex-senum";
 import { TypeOfBirthEnum } from "../model/type-of-birth-enum";
 
 export class UpdateBabyRequest {
-    id: number;
     name: string;
     dateOfBirth: Date;
     sex: SexEnum;
@@ -13,7 +12,6 @@ export class UpdateBabyRequest {
     comments: string;
 
     constructor(
-        id: number,
         name: string,
         dateOfBirth: Date,
         sex: SexEnum,
@@ -23,7 +21,6 @@ export class UpdateBabyRequest {
         birthWeight: number,
         comments: string
     ) {
-        this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.sex = sex;

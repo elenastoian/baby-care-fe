@@ -23,7 +23,7 @@ export class BabyService {
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.get<GetAllBabiesResponse[]>(`${this.apiServerUrl}/baby/all`, { headers: headers });
+    return this.http.get<GetAllBabiesResponse[]>(`${this.apiServerUrl}/babies`, { headers: headers });
   }
 
   findBabyById(id: number): Observable<GetBabyResponse[]> {
@@ -32,16 +32,16 @@ export class BabyService {
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.get<GetBabyResponse[]>(`${this.apiServerUrl}/baby/${id}`, { headers: headers });
+    return this.http.get<GetBabyResponse[]>(`${this.apiServerUrl}/babies/${id}`, { headers: headers });
   }
 
-  updateBaby(updateBabyRequest: UpdateBabyRequest): Observable<GetBabyResponse> {
+  updateBaby(id: number, updateBabyRequest: UpdateBabyRequest): Observable<GetBabyResponse> {
     let user = this.storageService.getUser();
 
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.put<GetBabyResponse>(`${this.apiServerUrl}/baby/update`, updateBabyRequest, { headers: headers });
+    return this.http.put<GetBabyResponse>(`${this.apiServerUrl}/babies/${id}`, updateBabyRequest, { headers: headers });
   }
 }

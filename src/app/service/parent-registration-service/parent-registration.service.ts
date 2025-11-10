@@ -27,7 +27,7 @@ export class ParentRegistrationService {
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.post<SaveParentResponse>(`${this.apiServerUrl}/parent/save`, saveParentRequest, { headers: headers });
+    return this.http.post<SaveParentResponse>(`${this.apiServerUrl}/parents`, saveParentRequest, { headers: headers });
   }
 
 }

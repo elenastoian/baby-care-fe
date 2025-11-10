@@ -22,10 +22,9 @@ export class BabyTrackerService {
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.get<SleepRecordResponse[]>(`${this.apiServerUrl}/sleep/get-all/baby/${babyId}`, { headers: headers });
+    return this.http.get<SleepRecordResponse[]>(`${this.apiServerUrl}/sleep/${babyId}/records`, { headers: headers });
  
   }
-
 
   getAllScreenTimeRecords(babyId: number): Observable<ScreenTimeRecordResponse[]> {
     let user = this.storageService.getUser();
@@ -33,7 +32,7 @@ export class BabyTrackerService {
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.get<ScreenTimeRecordResponse[]>(`${this.apiServerUrl}/screen/get-all/baby/${babyId}`, { headers: headers });
+    return this.http.get<ScreenTimeRecordResponse[]>(`${this.apiServerUrl}/screen/${babyId}/records`, { headers: headers });
  
   }
 
@@ -43,7 +42,7 @@ export class BabyTrackerService {
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.get<FeedRecordResponse[]>(`${this.apiServerUrl}/feed/get-all/baby/${babyId}`, { headers: headers });
+    return this.http.get<FeedRecordResponse[]>(`${this.apiServerUrl}/feeding/${babyId}/records`, { headers: headers });
  
   }
 }

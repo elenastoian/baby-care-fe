@@ -26,6 +26,6 @@ export class BabyAddService {
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.post<SaveBabyResponse>(`${this.apiServerUrl}/baby/save`, saveBabyRequest, { headers: headers });
+    return this.http.post<SaveBabyResponse>(`${this.apiServerUrl}/babies`, saveBabyRequest, { headers: headers });
   }
 }

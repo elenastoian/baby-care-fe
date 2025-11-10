@@ -35,6 +35,6 @@ export class ParentService {
       'Authorization': 'Bearer ' + user.token
     });
 
-    return this.http.put<SaveParentResponse>(`${this.apiServerUrl}/parent/update`, updateParentRequest, { headers: headers });
+    return this.http.put<SaveParentResponse>(`${this.apiServerUrl}/parents/update`, updateParentRequest, { headers: headers });
   }
 }
