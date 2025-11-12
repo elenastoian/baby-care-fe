@@ -91,13 +91,10 @@ import {AppComponent} from './app.component';
 import {AppCodeModule} from './blocks/app-code/app.code.component';
 import {AppMainComponent} from './app.main.component';
 import {AppConfigComponent} from './app.config.component';
-import {AppCrudComponent} from './pages/app.crud.component';
-import {AppCalendarComponent} from './pages/app.calendar.component';
-import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
-import {AppNotfoundComponent} from './pages/app.notfound.component';
-import {AppErrorComponent} from './pages/app.error.component';
-import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppLoginComponent} from './pages/app.login.component';
+import {AppNotfoundComponent} from './shared/app-not-found/app.notfound.component';
+import {AppErrorComponent} from './shared/error/app.error.component';
+import {AppAccessdeniedComponent} from './shared/access-denied/app.accessdenied.component';
+import {AppLoginComponent} from './shared/login/app.login.component';
 import {AppMenuComponent} from './app.menu.component';
 import {AppMenuitemComponent} from './app.menuitem.component';
 import {AppRightMenuComponent} from './app.right-menu.component';
@@ -125,9 +122,6 @@ import {DocumentationComponent} from './demo/view/documentation.component';
 import {IconsComponent} from './utilities/icons.component';
 import {BlocksComponent} from './blocks/blocks/blocks.component';
 import {BlockViewer} from './blocks/blockviewer/blockviewer.component';
-import {AppHelpComponent} from './pages/app.help.component';
-import {AppInvoiceComponent} from './pages/app.invoice.component';
-
 import {CountryService} from './demo/service/countryservice';
 import {EventService} from './demo/service/eventservice';
 import {NodeService} from './demo/service/nodeservice';
@@ -136,26 +130,19 @@ import {CustomerService} from './demo/service/customerservice';
 import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
 import {IconService} from './demo/service/iconservice';
-import { AppRegisterComponent } from './pages/app.register.component';
-import { RecoveryAccountComponent } from './pages/recovery-account.component';
-import { RecoveryEmailSentConfirmationComponent } from './pages/recovery-email-sent-confirmation.component';
-import { RecoveryMailConfirmationComponent } from './pages/recovery-mail-confirmation.component';
-import { RecoveryPasswordComponent } from './pages/recovery-password.component';
-import { ResendConfirmationEmailComponent } from './pages/resend-confirmation-email.component';
-import { ResetPasswordConfirmationComponent } from './pages/reset-password-confirmation.component';
-import { ResetPasswordFailedComponent } from './pages/reset-password-failed.component';
-import { ResetPasswordComponent } from './pages/reset-password.component';
-import { RegistrationConfirmationComponent } from './pages/registration-confirmation.component';
-import { EmailConfirmationComponent } from './pages/email-confirmation.component';
-import { HomeComponent } from './pages/home.component';
-import { ParentComponent } from './pages/app.parent.component';
-import { AppBabiesComponent } from './pages/app.babies.component';
-import { ParentRegistrationComponent } from './pages/parent-registration.component';
-import { AppBabyAddComponent } from './pages/app.baby-add.component';
-import { AppBabyComponent } from './pages/app.baby.component';
-import { AppContactComponent } from './pages/app.contact.component';
-import { AppBabiesTrackerComponent } from './pages/app.babies-tracker.component';
-import { AppBabyTrackerComponent } from './pages/app.baby-tracker.component';
+import { AppRegisterComponent } from './shared/register/app.register.component';
+import { ResendConfirmationEmailComponent } from './shared/email-confirmation/resend-confirmation-email.component';
+import { RegistrationConfirmationComponent } from './shared/registration-confirmation/registration-confirmation.component';
+import { HomeComponent } from './features/home/home.component';
+import { ParentComponent } from './features/parent/app.parent.component';
+import { ParentRegistrationComponent } from './features/parent-registration/parent-registration.component';
+import { AppBabyAddComponent } from './features/babies-add/app.baby-add.component';
+import { AppBabiesTrackerComponent } from './features/babies-tracker/app.babies-tracker.component';
+import { AppBabyTrackerComponent } from './features/baby-tracker/app.baby-tracker.component';
+import { AppBabiesComponent } from './features/babies/app.babies.component';
+import { AppBabyComponent } from './features/baby/app.baby.component';
+import { EmailConfirmationComponent } from './shared/email-confirmation/email-confirmation.component';
+import { AppContactComponent } from './features/contact/app.contact.component';
 
 
 @NgModule({
@@ -277,26 +264,14 @@ import { AppBabyTrackerComponent } from './pages/app.baby-tracker.component';
         FileDemoComponent,
         DocumentationComponent,
         IconsComponent,
-        AppCrudComponent,
-        AppCalendarComponent,
-        AppTimelineDemoComponent,
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
         AppLoginComponent,
         BlockViewer,
         BlocksComponent,
-        AppHelpComponent,
-        AppInvoiceComponent,
         AppRegisterComponent,
-        RecoveryPasswordComponent,
-        ResetPasswordComponent,
-        ResetPasswordConfirmationComponent,
-        RecoveryMailConfirmationComponent,
-        ResetPasswordFailedComponent,
-        RecoveryAccountComponent,
         ResendConfirmationEmailComponent,
-        RecoveryEmailSentConfirmationComponent,
         RegistrationConfirmationComponent,
         EmailConfirmationComponent,
         HomeComponent,
@@ -305,9 +280,9 @@ import { AppBabyTrackerComponent } from './pages/app.baby-tracker.component';
         ParentRegistrationComponent,
         AppBabyAddComponent,
         AppBabyComponent,
-        AppContactComponent,
         AppBabiesTrackerComponent,
-        AppBabyTrackerComponent
+        AppBabyTrackerComponent,
+        AppContactComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

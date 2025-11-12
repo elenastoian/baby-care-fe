@@ -1,31 +1,24 @@
 import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {AppMainComponent} from './app.main.component';
-import {AppNotfoundComponent} from './pages/app.notfound.component';
-import {AppErrorComponent} from './pages/app.error.component';
-import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppLoginComponent} from './pages/app.login.component';
-import { AppRegisterComponent } from './pages/app.register.component';
-import { EmailConfirmationComponent } from './pages/email-confirmation.component';
-import { RecoveryAccountComponent } from './pages/recovery-account.component';
-import { RecoveryEmailSentConfirmationComponent } from './pages/recovery-email-sent-confirmation.component';
-import { RecoveryMailConfirmationComponent } from './pages/recovery-mail-confirmation.component';
-import { RecoveryPasswordComponent } from './pages/recovery-password.component';
-import { RegistrationConfirmationComponent } from './pages/registration-confirmation.component';
-import { ResendConfirmationEmailComponent } from './pages/resend-confirmation-email.component';
-import { ResetPasswordConfirmationComponent } from './pages/reset-password-confirmation.component';
-import { ResetPasswordFailedComponent } from './pages/reset-password-failed.component';
-import { ResetPasswordComponent } from './pages/reset-password.component';
-import { HomeComponent } from './pages/home.component';
+import {AppNotfoundComponent} from './shared/app-not-found/app.notfound.component';
+import {AppErrorComponent} from './shared/error/app.error.component';
+import {AppAccessdeniedComponent} from './shared/access-denied/app.accessdenied.component';
+import {AppLoginComponent} from './shared/login/app.login.component';
+import { AppRegisterComponent } from './shared/register/app.register.component';
+import { RegistrationConfirmationComponent } from './shared/registration-confirmation/registration-confirmation.component';
+import { ResendConfirmationEmailComponent } from './shared/email-confirmation/resend-confirmation-email.component';
+import { HomeComponent } from './features/home/home.component';
 import { AuthGuardService } from './service/auth-guard-service/auth-guard.service';
-import { ParentComponent } from './pages/app.parent.component';
-import { AppBabiesComponent } from './pages/app.babies.component';
-import { ParentRegistrationComponent } from './pages/parent-registration.component';
-import { AppBabyAddComponent } from './pages/app.baby-add.component';
-import { AppBabyComponent } from './pages/app.baby.component';
-import { AppContactComponent } from './pages/app.contact.component';
-import { AppBabiesTrackerComponent } from './pages/app.babies-tracker.component';
-import { AppBabyTrackerComponent } from './pages/app.baby-tracker.component';
+import { ParentComponent } from './features/parent/app.parent.component';
+import { ParentRegistrationComponent } from './features/parent-registration/parent-registration.component';
+import { AppBabyAddComponent } from './features/babies-add/app.baby-add.component';
+import { AppBabiesTrackerComponent } from './features/babies-tracker/app.babies-tracker.component';
+import { AppBabyTrackerComponent } from './features/baby-tracker/app.baby-tracker.component';
+import { AppBabiesComponent } from './features/babies/app.babies.component';
+import { AppBabyComponent } from './features/baby/app.baby.component';
+import { EmailConfirmationComponent } from './shared/email-confirmation/email-confirmation.component';
+import { AppContactComponent } from './features/contact/app.contact.component';
 
 
 @NgModule({
@@ -49,20 +42,12 @@ import { AppBabyTrackerComponent } from './pages/app.baby-tracker.component';
                      { path: '', component: HomeComponent, title: 'Baby Care' },
                      { path: 'login', component: AppLoginComponent, title: 'Baby Care' },
                      { path: 'register', component: AppRegisterComponent, title: 'Baby Care' },
-                     { path: 'password-recovery', component: RecoveryPasswordComponent, title: 'Baby Care' },
- 
-                     { path: 'password-reset', component: ResetPasswordComponent, title: 'Baby Care' },
-                     { path: 'password-recovery-confirmation', component: ResetPasswordConfirmationComponent, title: 'Baby Care' },
-                     { path: 'password-recovery-failed', component: ResetPasswordFailedComponent, title: 'Baby Care' },
-                    
-                     { path: 'account-recovery', component: RecoveryAccountComponent, title: 'Baby Care' },
-                     { path: 'recovery-email-confirmation', component: RecoveryMailConfirmationComponent, title: 'Baby Care' },
+            
  
                      { path: 'sign-up-confirmation', component: RegistrationConfirmationComponent, title: 'Baby Care'},
                      { path: 'email-confirmation', component: EmailConfirmationComponent, title: 'Baby Care' },
  
                      { path: 'resend-confirmation-email', component: ResendConfirmationEmailComponent, title: 'Baby Care' },
-                     { path: 'resend-confirmation-email-confirmation', component: RecoveryEmailSentConfirmationComponent, title: 'Baby Care' },
 
                      { path: 'contact', component: AppContactComponent, title: 'Baby Care' }
  
